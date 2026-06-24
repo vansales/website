@@ -109,14 +109,8 @@ const STR = {
     cookiesP: "This website uses only one functional cookie. For full details, please see our",
     cookiesLink: "Cookie Policy",
     contactH: "Contact us",
-    contactP: "For any privacy question, to exercise your rights, or to reach our data protection contact, please get in touch:",
-    entity: "Vansales Application Co., Ltd.",
-    emailLabel: "Email",
-    email: "info@vansalesapp.com",
-    phoneLabel: "Phone",
-    phone: "064-714-4429, 089-925-2945",
-    lineLabel: "LINE",
-    line: "@vansales",
+    contactP: "For any privacy question, to exercise your rights, or to reach our data protection contact, please use our",
+    contactCta: "contact form",
     updatesH: "Updates to this policy",
     updatesP:
       "We may update this policy from time to time. The latest version will always be on this page, with a revised date shown above. For significant changes we will give notice through the service or by email.",
@@ -218,14 +212,8 @@ const STR = {
     cookiesP: "เว็บไซต์นี้ใช้คุกกี้เพื่อการใช้งานเพียงตัวเดียว ดูรายละเอียดทั้งหมดได้ที่",
     cookiesLink: "นโยบายคุกกี้",
     contactH: "ติดต่อเรา",
-    contactP: "หากมีคำถามเรื่องความเป็นส่วนตัว ต้องการใช้สิทธิของคุณ หรือต้องการติดต่อผู้ดูแลข้อมูลส่วนบุคคล:",
-    entity: "บริษัท แวนเซลส์ แอปพลิเคชัน จำกัด",
-    emailLabel: "อีเมล",
-    email: "info@vansalesapp.com",
-    phoneLabel: "โทรศัพท์",
-    phone: "064-714-4429, 089-925-2945",
-    lineLabel: "LINE",
-    line: "@vansales",
+    contactP: "หากมีคำถามเรื่องความเป็นส่วนตัว ต้องการใช้สิทธิของคุณ หรือต้องการติดต่อผู้ดูแลข้อมูลส่วนบุคคล โปรดติดต่อผ่าน",
+    contactCta: "แบบฟอร์มติดต่อ",
     updatesH: "การปรับปรุงนโยบาย",
     updatesP:
       "เราอาจปรับปรุงนโยบายนี้เป็นครั้งคราว โดยฉบับล่าสุดจะอยู่บนหน้านี้เสมอ พร้อมระบุวันที่แก้ไขไว้ด้านบน กรณีมีการเปลี่ยนแปลงที่สำคัญ เราจะแจ้งให้ทราบผ่านบริการหรือทางอีเมล",
@@ -266,15 +254,10 @@ export default function PrivacyPolicyPage() {
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.contactH}</h2>
-        <p className="mt-3 leading-relaxed text-muted-foreground">{t.contactP}</p>
-        <div className="mt-4 rounded-xl border bg-muted/30 p-5 text-sm leading-relaxed">
-          <p className="font-semibold text-foreground">{t.entity}</p>
-          <p className="mt-1 text-muted-foreground">
-            {t.emailLabel}: <a href={`mailto:${t.email}`} className="text-primary underline underline-offset-2">{t.email}</a>
-          </p>
-          <p className="text-muted-foreground">{t.phoneLabel}: {t.phone}</p>
-          <p className="text-muted-foreground">{t.lineLabel}: {t.line}</p>
-        </div>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          {t.contactP}{" "}
+          <Link href="/#contact" className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
+        </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.updatesH}</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">{t.updatesP}</p>

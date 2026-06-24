@@ -88,14 +88,8 @@ const STR = {
     privacyLink: "Privacy Policy",
     cookieLink: "Cookie Policy",
     contactH: "Contact us",
-    contactP: "Questions about these terms? Contact:",
-    entity: "Vansales Application Co., Ltd.",
-    emailLabel: "Email",
-    email: "info@vansalesapp.com",
-    phoneLabel: "Phone",
-    phone: "064-714-4429, 089-925-2945",
-    lineLabel: "LINE",
-    line: "@vansales",
+    contactP: "Questions about these terms? Reach us through our",
+    contactCta: "contact form",
   },
   th: {
     eyebrow: "ข้อกฎหมาย",
@@ -173,14 +167,8 @@ const STR = {
     privacyLink: "นโยบายความเป็นส่วนตัว",
     cookieLink: "นโยบายคุกกี้",
     contactH: "ติดต่อเรา",
-    contactP: "มีคำถามเกี่ยวกับข้อกำหนดนี้? ติดต่อ:",
-    entity: "บริษัท แวนเซลส์ แอปพลิเคชัน จำกัด",
-    emailLabel: "อีเมล",
-    email: "info@vansalesapp.com",
-    phoneLabel: "โทรศัพท์",
-    phone: "064-714-4429, 089-925-2945",
-    lineLabel: "LINE",
-    line: "@vansales",
+    contactP: "มีคำถามเกี่ยวกับข้อกำหนดนี้? ติดต่อเราผ่าน",
+    contactCta: "แบบฟอร์มติดต่อ",
   },
 } as const;
 
@@ -219,15 +207,10 @@ export default function TermsPage() {
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.contactH}</h2>
-        <p className="mt-3 leading-relaxed text-muted-foreground">{t.contactP}</p>
-        <div className="mt-4 rounded-xl border bg-muted/30 p-5 text-sm leading-relaxed">
-          <p className="font-semibold text-foreground">{t.entity}</p>
-          <p className="mt-1 text-muted-foreground">
-            {t.emailLabel}: <a href={`mailto:${t.email}`} className="text-primary underline underline-offset-2">{t.email}</a>
-          </p>
-          <p className="text-muted-foreground">{t.phoneLabel}: {t.phone}</p>
-          <p className="text-muted-foreground">{t.lineLabel}: {t.line}</p>
-        </div>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          {t.contactP}{" "}
+          <Link href="/#contact" className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
+        </p>
       </section>
 
       <SiteFooter lang={lang} />
