@@ -10,3 +10,6 @@ next-env.d.ts
 # local env (secrets) — keep .env.example committed
 .env
 .env*.local
+
+# internal planning notes — local only, not published
+/docs/
