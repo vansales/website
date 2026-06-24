@@ -1,30 +1,67 @@
-# Vansales — Website
+<div align="center">
 
-The public marketing site for **Vansales** ([vansales.asia](https://vansales.asia)),
-built with Next.js 14 (App Router) and the Vansales design system.
+# Vansales
 
-## Stack
-- Next.js 14 (App Router), React 18, TypeScript
-- Tailwind CSS
-- `@vansales/design-system` — vendored under `vendor/` as a packed tarball
-- Bilingual EN/TH (server-resolved via a cookie)
+### All-in-one sales & distribution platform
+**Built for field sales and distribution teams across Thailand and Southeast Asia.**
 
-## Develop
+[🌐 vansales.asia](https://vansales.asia) · [🔐 Open the app](https://manager.vansales.asia) · [✉️ Talk to us](https://vansales.asia/#contact)
+
+</div>
+
+---
+
+## What is Vansales?
+
+Vansales helps brands, distributors, and sales teams run their **entire field operation in one system** — from taking an order at the counter to delivering at the customer's door. Orders, customers, stock, routes, payments, delivery, and reports all live in one place, in real time.
+
+The result: **faster sales, fewer errors, and full visibility** — from the very first sales truck to a network of hundreds of thousands of retail outlets.
+
+> Great products win shelves. Great distribution wins markets.
+
+## What it does
+
+| | |
+|---|---|
+| 🧾 **Orders** | Take and track orders end to end |
+| 👥 **Customers** | Purchase history, credit, and contacts for every shop |
+| 📦 **Stock** | Real-time across warehouses, branches, and sales vans |
+| 🗺️ **Routes & field** | Plan routes, track the team, check in at every shop |
+| 💵 **Payments** | Collect cash, transfer, or QR on the spot |
+| 🚚 **Delivery** | Plan deliveries with proof of delivery |
+| 📊 **Reports** | Sales, targets, and the whole business — live |
+| 📱 **Mobile** | Run it all from a single phone in the field |
+| 🏢 **Multi-branch** | Scale across many branches and distributors |
+
+## Industries we serve
+
+**FMCG** · **Food & Beverage** · **Pharmaceuticals & Healthcare** · **Retail & Wholesale** · **Brand owners & manufacturers** · **Automotive parts**
+
+---
+
+## เกี่ยวกับ Vansales
+
+**Vansales** คือแพลตฟอร์มบริหารงานขายและกระจายสินค้าครบวงจร สำหรับทีมขายภาคสนามและตัวแทนจำหน่ายทั่วไทยและเอเชียตะวันออกเฉียงใต้
+
+ตั้งแต่เปิดบิลหน้าร้าน ไปจนถึงส่งของถึงมือลูกค้า — ออเดอร์ ลูกค้า สต๊อก เส้นทาง การเก็บเงิน การจัดส่ง และรายงาน อยู่ในระบบเดียว แบบเรียลไทม์ ช่วยให้ **ขายได้เร็วขึ้น แม่นยำขึ้น และมองเห็นทุกอย่างชัดเจน** ตั้งแต่รถขายคันแรกไปจนถึงเครือข่ายร้านค้านับแสนแห่ง
+
+🌐 เว็บไซต์: [vansales.asia](https://vansales.asia) · 🔐 เข้าสู่ระบบ: [manager.vansales.asia](https://manager.vansales.asia) · ✉️ ติดต่อเรา: [vansales.asia/#contact](https://vansales.asia/#contact)
+
+---
+
+<details>
+<summary><b>About this repository</b></summary>
+
+This repository holds the source of the Vansales **marketing website** ([vansales.asia](https://vansales.asia)) — a bilingual (EN/TH) [Next.js](https://nextjs.org) 14 app built with the Vansales design system.
+
 ```sh
 pnpm install
-pnpm dev            # http://localhost:3000
+pnpm dev        # http://localhost:3000
 ```
 
-## Environment
-Copy `.env.example` → `.env.local` and set:
-- `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` — contact form (Web3Forms, client-side submit)
+The design system ships as a vendored package under `vendor/`. The contact form
+posts to Web3Forms — set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local`.
 
-## Design system
-The design system is maintained **in a separate project** (synced to claude.ai/design)
-and vendored here as a built package: `vendor/vansales-design-system-*.tgz`.
-To pick up DS changes, re-pack the DS (`pnpm pack` in the design-system) and replace
-the tarball, then `pnpm install`.
+</details>
 
-## Deploy
-Deploys to Vercel as a standard Next.js app — no special configuration needed.
-Set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in the project's Environment Variables.
+<div align="center"><sub>© Vansales · Vansales Application Co., Ltd.</sub></div>
