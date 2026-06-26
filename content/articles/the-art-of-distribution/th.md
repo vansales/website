@@ -2,6 +2,7 @@
 title: The Art of Distribution
 excerpt: ในโลกของ FMCG ความสำเร็จไม่ได้วัดที่ว่าใครมีสินค้าดีที่สุด แต่วัดที่ว่าใครนำสินค้าไปวางตรงหน้าผู้บริโภคได้เร็วที่สุด ครอบคลุมที่สุด และสม่ำเสมอที่สุด
 date: 2026-03-01
+author: founder
 tag: มุมมอง
 cover: /marketing/art-of-distribution-cover.jpg
 coverAlt: บนเวที พูดถึงศิลปะการกระจายสินค้า

@@ -6,6 +6,8 @@ import type { Lang } from "./use-lang";
 const ARTICLES_DIR = path.join(process.cwd(), "content", "articles");
 const LANGS: Lang[] = ["en", "th"];
 
+export type AuthorPersona = "founder" | "team" | "field-team";
+
 export interface ArticleMeta {
   slug: string;
   /** Languages this article is actually written in. */
@@ -16,6 +18,8 @@ export interface ArticleMeta {
   tag?: string;
   cover?: string;
   coverAlt?: string;
+  /** Byline persona shown at the foot of the article. */
+  author?: AuthorPersona;
 }
 
 export interface Article extends ArticleMeta {
@@ -50,6 +54,9 @@ function load(slug: string, lang: Lang) {
     tag: parsed.data.tag ? String(parsed.data.tag) : undefined,
     cover: parsed.data.cover ? String(parsed.data.cover) : undefined,
     coverAlt: parsed.data.coverAlt ? String(parsed.data.coverAlt) : undefined,
+    author: (["founder", "team", "field-team"] as const).includes(parsed.data.author)
+      ? (parsed.data.author as AuthorPersona)
+      : undefined,
     content: parsed.content,
   };
 }
@@ -78,7 +85,7 @@ export function listArticles(lang: Lang): ArticleMeta[] {
       if (!langs.length) return null;
       const use = langs.includes(lang) ? lang : langs[0];
       const a = load(slug, use);
-      return { slug, langs, title: a.title, excerpt: a.excerpt, date: a.date, tag: a.tag, cover: a.cover, coverAlt: a.coverAlt };
+      return { slug, langs, title: a.title, excerpt: a.excerpt, date: a.date, tag: a.tag, cover: a.cover, coverAlt: a.coverAlt, author: a.author };
     })
     .filter((x): x is ArticleMeta => x !== null)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -102,6 +109,7 @@ export function getArticle(slug: string, lang: Lang): Article | null {
     tag: a.tag,
     cover: a.cover,
     coverAlt: a.coverAlt,
+    author: a.author,
     content: a.content,
   };
 }
