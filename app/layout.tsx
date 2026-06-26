@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { resolveLang } from "@/lib/server-lang";
 import { CookieNotice } from "@/components/cookie-notice";
 import { BackToTop } from "@/components/back-to-top";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vansales.asia"),
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <BackToTop />
         <CookieNotice lang={lang} />
+        <SpeedInsights />
       </body>
     </html>
   );
