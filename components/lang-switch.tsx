@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { cn } from "@vansales/design-system";
 import { type Lang } from "@/lib/use-lang";
 
@@ -20,9 +20,14 @@ function targetUrl(pathname: string, to: Lang): string {
 /** EN / ไทย switch that navigates to the same page in the other locale. */
 export function LangSwitch({ lang, onDark }: { lang: Lang; onDark?: boolean }) {
   const pathname = usePathname();
-  const router = useRouter();
   const go = (l: Lang) => {
-    if (l !== lang) router.push(targetUrl(pathname, l));
+    if (l === lang) return;
+    // Language is resolved server-side from the URL, and the middleware rewrites
+    // /th/x and /x to the same route — a soft router.push reuses the cached tree
+    // and the language doesn't change. A full navigation always re-renders.
+    // usePathname() drops the hash/query, so carry them over to stay in place.
+    const url = targetUrl(pathname, l) + window.location.search + window.location.hash;
+    window.location.assign(url);
   };
   return (
     <div className={cn("inline-flex rounded-full border p-0.5 text-xs", onDark ? "border-white/25" : "border-border")}>

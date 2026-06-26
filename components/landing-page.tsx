@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLang, type Lang } from "@/lib/use-lang";
+import { type Lang } from "@/lib/use-lang";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
 import { LangSwitch } from "@/components/lang-switch";
@@ -666,7 +666,7 @@ function SectionHead({ eyebrow, title, subtitle }: { eyebrow: string; title: str
 }
 
 function LandingPage({ initialLang }: { initialLang: Lang }) {
-  const [lang] = useLang(initialLang);
+  const lang = initialLang;
   const t = STR[lang];
   const [t1, t2] = t.heroTitle1.split("\n");
   const testiRef = useRef<HTMLDivElement>(null);
