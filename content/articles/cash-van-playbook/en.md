@@ -2,6 +2,7 @@
 title: "The Cash Van Playbook: How to Run Mobile Sales for Profit"
 excerpt: "A cash van can be a profit engine or a slow leak — and the difference is rarely the product. Here's the playbook: unit economics, routes built on frequency, the right basket, tight stock and cash, and the numbers to manage every day."
 date: 2026-06-22
+author: field-team
 tag: Playbook
 cover: /marketing/field-sales.jpg
 coverAlt: A field sales rep serving a shop from a cash van route
