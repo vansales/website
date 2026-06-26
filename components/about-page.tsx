@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLang, type Lang } from "@/lib/use-lang";
+import { type Lang } from "@/lib/use-lang";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
+import { LangSwitch } from "@/components/lang-switch";
 import { navItems } from "@/lib/nav";
+import { localized } from "@/lib/i18n";
 import { SiteFooter } from "@/components/site-footer";
 import {
   ArrowRight,
@@ -204,27 +206,6 @@ const STR = {
   },
 } as const;
 
-function LangToggle({ lang, setLang, onDark }: { lang: Lang; setLang: (l: Lang) => void; onDark?: boolean }) {
-  return (
-    <div className={cn("inline-flex rounded-full border p-0.5 text-xs", onDark ? "border-white/25" : "border-border")}>
-      {(["en", "th"] as const).map((l) => (
-        <button
-          key={l}
-          onClick={() => setLang(l)}
-          className={cn(
-            "rounded-full px-2.5 py-1 font-medium transition",
-            lang === l
-              ? onDark ? "bg-white text-primary" : "bg-primary text-primary-foreground"
-              : onDark ? "text-white/70 hover:text-white" : "text-muted-foreground hover:text-foreground"
-          )}
-        >
-          {l.toUpperCase()}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 function SectionHead({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
   return (
     <div className="mx-auto mb-14 max-w-2xl text-center">
@@ -236,32 +217,32 @@ function SectionHead({ eyebrow, title, subtitle }: { eyebrow: string; title: str
 }
 
 function CompanyPage({ initialLang }: { initialLang: Lang }) {
-  const [lang, setLang] = useLang(initialLang);
+  const lang = initialLang;
   const t = STR[lang];
   const [ht1, ht2] = t.heroTitle.split("\n");
 
   return (
     <div className="bg-background text-foreground antialiased">
       <div className="bg-primary px-4 py-2 text-center text-xs font-medium text-primary-foreground">
-        {t.announce} · <Link href="/features/multi-branch" className="underline underline-offset-2">{t.learnMore}</Link>
+        {t.announce} · <Link href={localized("/features/multi-branch", lang)} className="underline underline-offset-2">{t.learnMore}</Link>
       </div>
 
       <header className="sticky top-0 z-40 border-b border-white/15 bg-[#1763ad]/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" aria-label="Vansales home" className="shrink-0">
+          <Link href={localized("/", lang)} aria-label="Vansales home" className="shrink-0">
             <Logo height={30} icon="square" color="#ffffff" />
           </Link>
           <DesktopNav items={navItems(lang)} />
           <div className="flex items-center gap-3">
-            <LangToggle lang={lang} setLang={setLang} onDark />
+            <LangSwitch lang={lang} onDark />
             <a href={`https://manager.vansales.asia/auth/login?lang=${lang}`} target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium text-white/70 hover:text-white md:block">{t.signIn}</a>
-            <a href="/#contact" className="hidden sm:block"><Button className="bg-white text-primary hover:bg-white/90">{t.contactSales}</Button></a>
+            <a href={localized("/#contact", lang)} className="hidden sm:block"><Button className="bg-white text-primary hover:bg-white/90">{t.contactSales}</Button></a>
             <MobileNav
               items={navItems(lang)}
               signIn={t.signIn}
               signInHref={`https://manager.vansales.asia/auth/login?lang=${lang}`}
               contactSales={t.contactSales}
-              contactHref="/#contact"
+              contactHref={localized("/#contact", lang)}
             />
           </div>
         </div>
@@ -281,8 +262,8 @@ function CompanyPage({ initialLang }: { initialLang: Lang }) {
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/75">{t.heroSub}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/#contact"><Button size="lg" className="bg-white text-primary hover:bg-white/90">{t.ctaPrimary} <ArrowRight /></Button></a>
-            <a href="/#contact"><Button size="lg" variant="outline" className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">{t.ctaSecondary}</Button></a>
+            <a href={localized("/#contact", lang)}><Button size="lg" className="bg-white text-primary hover:bg-white/90">{t.ctaPrimary} <ArrowRight /></Button></a>
+            <a href={localized("/#contact", lang)}><Button size="lg" variant="outline" className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">{t.ctaSecondary}</Button></a>
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, ArrowRight, ArrowLeft } from "lucide-react";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FEATURE_MOCKS, type MockKind } from "@/components/feature-mocks";
@@ -453,7 +454,7 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
           style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1px)", backgroundSize: "22px 22px" }}
         />
         <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 lg:py-24">
-          <Link href="/features" className="mb-5 inline-flex items-center gap-1.5 text-sm text-white/70 transition hover:text-white">
+          <Link href={localized("/features", lang)} className="mb-5 inline-flex items-center gap-1.5 text-sm text-white/70 transition hover:text-white">
             <ArrowLeft className="h-4 w-4" /> {ui.back}
           </Link>
           <span className="mx-auto mb-4 block w-fit rounded-full bg-white/15 px-3 py-1 text-xs font-medium">{t.eyebrow}</span>
@@ -572,9 +573,9 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-3 text-sm">
           <span className="text-muted-foreground">{ui.related}:</span>
           {others.map((s) => (
-            <Link key={s} href={`/features/${s}`} className="rounded-full border bg-card px-4 py-1.5 font-medium transition hover:bg-muted">{DETAILS[s][lang].title}</Link>
+            <Link key={s} href={localized(`/features/${s}`, lang)} className="rounded-full border bg-card px-4 py-1.5 font-medium transition hover:bg-muted">{DETAILS[s][lang].title}</Link>
           ))}
-          <Link href="/features/multi-branch" className="rounded-full border bg-card px-4 py-1.5 font-medium transition hover:bg-muted">{lang === "th" ? "หลายสาขา & เครือข่าย" : "Multi-branch & network"}</Link>
+          <Link href={localized("/features/multi-branch", lang)} className="rounded-full border bg-card px-4 py-1.5 font-medium transition hover:bg-muted">{lang === "th" ? "หลายสาขา & เครือข่าย" : "Multi-branch & network"}</Link>
         </div>
       </section>
 
@@ -584,8 +585,8 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
           <h2 className="text-3xl font-semibold tracking-tight">{ui.ctaTitle}</h2>
           <p className="mt-4 text-primary-foreground/80">{ui.ctaSub}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/#contact"><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{ui.cta1} <ArrowRight className="h-4 w-4" /></span></a>
-            <a href="/#contact"><span className="inline-flex items-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{ui.cta2}</span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{ui.cta1} <ArrowRight className="h-4 w-4" /></span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{ui.cta2}</span></a>
           </div>
         </div>
       </section>

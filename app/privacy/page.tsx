@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -17,7 +18,7 @@ const STR = {
     title: "Privacy Policy",
     updated: "Last updated: 21 June 2026",
     intro:
-      "This Privacy Policy explains how Vansales Application Co., Ltd. (“Vansales”, “we”) collects, uses, shares and protects personal data — both through this website (vansales.ai) and through the Vansales service and mobile application. Please read it together with our Terms of Service and, for business customers, the Data Processing Agreement (DPA) provided when you register.",
+      "This Privacy Policy explains how Vansales Application Co., Ltd. (“Vansales”, “we”) collects, uses, shares and protects personal data — both through this website and through the Vansales service and mobile application. Please read it together with our Terms of Service and, for business customers, the Data Processing Agreement (DPA) provided when you register.",
     sections: [
       {
         h: "Our two roles (controller and processor)",
@@ -120,7 +121,7 @@ const STR = {
     title: "นโยบายความเป็นส่วนตัว",
     updated: "ปรับปรุงล่าสุด: 21 มิถุนายน 2026",
     intro:
-      "นโยบายนี้อธิบายว่า บริษัท แวนเซลส์ แอปพลิเคชัน จำกัด (“Vansales” หรือ “เรา”) เก็บรวบรวม ใช้ เปิดเผย และคุ้มครองข้อมูลส่วนบุคคลอย่างไร ทั้งผ่านเว็บไซต์นี้ (vansales.ai) และผ่านบริการและแอปพลิเคชัน Vansales โปรดอ่านนโยบายนี้ควบคู่กับข้อตกลงการใช้บริการ และสำหรับลูกค้าธุรกิจ โปรดอ่านควบคู่กับข้อตกลงการประมวลผลข้อมูล (DPA) ที่มอบให้ตอนสมัครใช้งาน",
+      "นโยบายนี้อธิบายว่า บริษัท แวนเซลส์ แอปพลิเคชัน จำกัด (“Vansales” หรือ “เรา”) เก็บรวบรวม ใช้ เปิดเผย และคุ้มครองข้อมูลส่วนบุคคลอย่างไร ทั้งผ่านเว็บไซต์นี้ และผ่านบริการและแอปพลิเคชัน Vansales โปรดอ่านนโยบายนี้ควบคู่กับข้อตกลงการใช้บริการ และสำหรับลูกค้าธุรกิจ โปรดอ่านควบคู่กับข้อตกลงการประมวลผลข้อมูล (DPA) ที่มอบให้ตอนสมัครใช้งาน",
     sections: [
       {
         h: "สองบทบาทของเรา (ผู้ควบคุม และ ผู้ประมวลผล)",
@@ -250,13 +251,13 @@ export default function PrivacyPolicyPage() {
         <h2 className="mt-10 text-xl font-semibold">{t.cookiesH}</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {t.cookiesP}{" "}
-          <Link href="/cookie-policy" className="font-medium text-primary underline underline-offset-2">{t.cookiesLink}</Link>.
+          <Link href={localized("/cookie-policy", lang)} className="font-medium text-primary underline underline-offset-2">{t.cookiesLink}</Link>.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.contactH}</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {t.contactP}{" "}
-          <Link href="/#contact" className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
+          <Link href={localized("/#contact", lang)} className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.updatesH}</h2>

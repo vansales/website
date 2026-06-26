@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Resources",
@@ -54,7 +55,7 @@ export default function ResourcesPage() {
 
         {/* Featured interactive tool */}
         <Link
-          href="/resources/cashvan-calculator"
+          href={localized("/resources/cashvan-calculator", lang)}
           className="group mb-10 flex flex-col items-start gap-4 overflow-hidden rounded-2xl border bg-primary/5 p-6 transition hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
@@ -74,7 +75,7 @@ export default function ResourcesPage() {
             {articles.map((a) => (
               <Link
                 key={a.slug}
-                href={`/resources/${a.slug}`}
+                href={localized(`/resources/${a.slug}`, lang)}
                 className="group flex flex-col overflow-hidden rounded-2xl border bg-card transition duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
                 {a.cover && (

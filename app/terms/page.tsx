@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
@@ -17,7 +18,7 @@ const STR = {
     title: "Terms of Use",
     updated: "Last updated: 21 June 2026",
     intro:
-      "These Terms of Use are a general summary of the rules for accessing the Vansales website (vansales.ai) and the Vansales service, provided for information only. The full, binding agreement for a paid subscription is the one you accept when you register for the service. If anything here differs from that registration agreement, the registration agreement prevails.",
+      "These Terms of Use are a general summary of the rules for accessing the Vansales website and the Vansales service, provided for information only. The full, binding agreement for a paid subscription is the one you accept when you register for the service. If anything here differs from that registration agreement, the registration agreement prevails.",
     sections: [
       {
         h: "Acceptance of these terms",
@@ -96,7 +97,7 @@ const STR = {
     title: "ข้อกำหนดการใช้งาน",
     updated: "ปรับปรุงล่าสุด: 21 มิถุนายน 2026",
     intro:
-      "ข้อกำหนดการใช้งานนี้เป็นสรุปกติกาโดยทั่วไปสำหรับการเข้าถึงเว็บไซต์ Vansales (vansales.ai) และบริการ Vansales จัดทำขึ้นเพื่อเป็นข้อมูลเบื้องต้นเท่านั้น ทั้งนี้ ข้อตกลงฉบับสมบูรณ์ที่มีผลผูกพันสำหรับการสมัครใช้บริการแบบเสียค่าบริการ คือฉบับที่คุณยอมรับตอนสมัครใช้งาน หากข้อความในหน้านี้ขัดกับข้อตกลงตอนสมัคร ให้ยึดข้อตกลงตอนสมัครเป็นหลัก",
+      "ข้อกำหนดการใช้งานนี้เป็นสรุปกติกาโดยทั่วไปสำหรับการเข้าถึงเว็บไซต์ Vansales และบริการ Vansales จัดทำขึ้นเพื่อเป็นข้อมูลเบื้องต้นเท่านั้น ทั้งนี้ ข้อตกลงฉบับสมบูรณ์ที่มีผลผูกพันสำหรับการสมัครใช้บริการแบบเสียค่าบริการ คือฉบับที่คุณยอมรับตอนสมัครใช้งาน หากข้อความในหน้านี้ขัดกับข้อตกลงตอนสมัคร ให้ยึดข้อตกลงตอนสมัครเป็นหลัก",
     sections: [
       {
         h: "การยอมรับข้อกำหนด",
@@ -201,15 +202,15 @@ export default function TermsPage() {
 
         <p className="mt-10 text-sm text-muted-foreground">
           {t.relatedLabel}{" "}
-          <Link href="/privacy" className="font-medium text-primary underline underline-offset-2">{t.privacyLink}</Link>
+          <Link href={localized("/privacy", lang)} className="font-medium text-primary underline underline-offset-2">{t.privacyLink}</Link>
           {" · "}
-          <Link href="/cookie-policy" className="font-medium text-primary underline underline-offset-2">{t.cookieLink}</Link>
+          <Link href={localized("/cookie-policy", lang)} className="font-medium text-primary underline underline-offset-2">{t.cookieLink}</Link>
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.contactH}</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {t.contactP}{" "}
-          <Link href="/#contact" className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
+          <Link href={localized("/#contact", lang)} className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
         </p>
       </section>
 

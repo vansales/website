@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 import { Wallet, ShoppingBasket, Route, ArrowRight } from "lucide-react";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CashvanCalculator } from "@/components/cashvan-calculator";
@@ -110,8 +111,8 @@ export default function CashvanCalculatorPage() {
           <h2 className="text-3xl font-semibold tracking-tight">{t.ctaTitle}</h2>
           <p className="mt-4 text-primary-foreground/80">{t.ctaSub}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/#contact"><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{t.cta1} <ArrowRight className="h-4 w-4" /></span></a>
-            <a href="/features"><span className="inline-flex items-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{t.cta2}</span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{t.cta1} <ArrowRight className="h-4 w-4" /></span></a>
+            <a href={localized("/features", lang)}><span className="inline-flex items-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{t.cta2}</span></a>
           </div>
         </div>
       </section>

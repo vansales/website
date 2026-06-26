@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { type Lang } from "@/lib/use-lang";
+import { localized } from "@/lib/i18n";
 
 const ACK_KEY = "vansales-cookie-ack";
 
@@ -45,7 +46,7 @@ export function CookieNotice({ lang }: { lang: Lang }) {
     <div className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border bg-card/95 p-4 shadow-xl backdrop-blur sm:flex sm:items-center sm:gap-4">
       <p className="text-sm leading-6 text-muted-foreground">
         🍪 {t.text}{" "}
-        <Link href="/cookie-policy" className="font-medium text-primary underline underline-offset-2">{t.learn}</Link>
+        <Link href={localized("/cookie-policy", lang)} className="font-medium text-primary underline underline-offset-2">{t.learn}</Link>
       </p>
       <button
         onClick={dismiss}

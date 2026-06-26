@@ -3,10 +3,12 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLang, type Lang } from "@/lib/use-lang";
+import { type Lang } from "@/lib/use-lang";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
+import { LangSwitch } from "@/components/lang-switch";
 import { navItems } from "@/lib/nav";
+import { localized } from "@/lib/i18n";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
 import {
@@ -663,33 +665,8 @@ function SectionHead({ eyebrow, title, subtitle }: { eyebrow: string; title: str
   );
 }
 
-function LangToggle({ lang, setLang, onDark }: { lang: Lang; setLang: (l: Lang) => void; onDark?: boolean }) {
-  return (
-    <div className={cn("flex items-center rounded-full border p-0.5 text-xs font-medium", onDark ? "border-white/25" : "border-input")}>
-      {(["en", "th"] as Lang[]).map((l) => (
-        <button
-          key={l}
-          onClick={() => setLang(l)}
-          className={cn(
-            "rounded-full px-2.5 py-1 transition-colors",
-            lang === l
-              ? onDark
-                ? "bg-white text-primary"
-                : "bg-primary text-primary-foreground"
-              : onDark
-                ? "text-white/80 hover:text-white"
-                : "text-muted-foreground hover:text-foreground"
-          )}
-        >
-          {l === "en" ? "EN" : "ไทย"}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 function LandingPage({ initialLang }: { initialLang: Lang }) {
-  const [lang, setLang] = useLang(initialLang);
+  const lang = initialLang;
   const t = STR[lang];
   const [t1, t2] = t.heroTitle1.split("\n");
   const testiRef = useRef<HTMLDivElement>(null);
@@ -699,27 +676,27 @@ function LandingPage({ initialLang }: { initialLang: Lang }) {
   return (
     <div className="bg-background text-foreground antialiased">
       <div className="bg-primary px-4 py-2 text-center text-xs font-medium text-primary-foreground">
-        {t.announce} · <Link href="/features/multi-branch" className="underline underline-offset-2">{t.learnMore}</Link>
+        {t.announce} · <Link href={localized("/features/multi-branch", lang)} className="underline underline-offset-2">{t.learnMore}</Link>
       </div>
 
       <header className="sticky top-0 z-40 border-b border-white/15 bg-[#1763ad]/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" aria-label="Vansales home" className="shrink-0">
+          <Link href={localized("/", lang)} aria-label="Vansales home" className="shrink-0">
             <Logo height={30} icon="square" color="#ffffff" />
           </Link>
           <DesktopNav items={navItems(lang)} />
           <div className="flex items-center gap-3">
-            <LangToggle lang={lang} setLang={setLang} onDark />
+            <LangSwitch lang={lang} onDark />
             <a href={`https://manager.vansales.asia/auth/login?lang=${lang}`} target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium text-white/70 hover:text-white md:block">
               {t.signIn}
             </a>
-            <a href="/#contact" className="hidden sm:block"><Button className="bg-white text-primary hover:bg-white/90">{t.contactSales}</Button></a>
+            <a href={localized("/#contact", lang)} className="hidden sm:block"><Button className="bg-white text-primary hover:bg-white/90">{t.contactSales}</Button></a>
             <MobileNav
               items={navItems(lang)}
               signIn={t.signIn}
               signInHref={`https://manager.vansales.asia/auth/login?lang=${lang}`}
               contactSales={t.contactSales}
-              contactHref="/#contact"
+              contactHref={localized("/#contact", lang)}
             />
           </div>
         </div>
@@ -739,8 +716,8 @@ function LandingPage({ initialLang }: { initialLang: Lang }) {
             </h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-white/70">{t.heroSub}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="/#contact"><Button size="lg" className="bg-white text-primary hover:bg-white/90">{t.ctaDemo} <ArrowRight /></Button></a>
-              <a href="/features"><Button size="lg" variant="outline" className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">{t.ctaFeatures}</Button></a>
+              <a href={localized("/#contact", lang)}><Button size="lg" className="bg-white text-primary hover:bg-white/90">{t.ctaDemo} <ArrowRight /></Button></a>
+              <a href={localized("/features", lang)}><Button size="lg" variant="outline" className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">{t.ctaFeatures}</Button></a>
             </div>
             <div className="mt-7 flex items-center gap-3">
               <div className="flex -space-x-2">
@@ -793,7 +770,7 @@ function LandingPage({ initialLang }: { initialLang: Lang }) {
             {t.feats.map((f, i) => (
               <a
                 key={f.t}
-                href={`/features/${FEAT_SLUGS[i]}`}
+                href={localized(`/features/${FEAT_SLUGS[i]}`, lang)}
                 className="group relative overflow-hidden rounded-2xl border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
               >
                 <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/5 transition group-hover:bg-primary/10" />
@@ -809,7 +786,7 @@ function LandingPage({ initialLang }: { initialLang: Lang }) {
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <a href="/features">
+            <a href={localized("/features", lang)}>
               <Button size="lg" variant="outline" className="gap-2">{t.featAll} <ArrowRight className="h-4 w-4" /></Button>
             </a>
           </div>

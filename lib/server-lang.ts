@@ -9,6 +9,11 @@ export const LANG_COOKIE = "vansales-lang";
  * Accept-Language preference order (Thai → th, English → en), else English.
  */
 export function resolveLang(): Lang {
+  // Set by middleware from the URL locale prefix (/th, /en, or none → en).
+  const fromPath = headers().get("x-lang");
+  if (fromPath === "en" || fromPath === "th") return fromPath;
+
+  // Fallbacks for any route the middleware doesn't cover.
   const cookie = cookies().get(LANG_COOKIE)?.value;
   if (cookie === "en" || cookie === "th") return cookie;
 
@@ -19,4 +24,14 @@ export function resolveLang(): Lang {
     if (code.startsWith("en")) return "en";
   }
   return "en";
+}
+
+/** The locale-stripped request path (e.g. "/resources/x"), from middleware. */
+export function currentPath(): string {
+  return headers().get("x-path") || "/";
+}
+
+/** The URL locale prefix actually requested: "", "/en", or "/th". */
+export function localePrefix(): string {
+  return headers().get("x-prefix") || "";
 }
