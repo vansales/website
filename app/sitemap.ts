@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { allSlugs } from "@/lib/articles";
 
-const BASE = "https://vansales.asia";
+const BASE = "https://vansales.ai";
 
 const FEATURE_SLUGS = ["orders", "customers", "stock", "route", "payments", "delivery", "reports", "mobile"];
 
