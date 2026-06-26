@@ -3,6 +3,7 @@
 import { Logo, Footer } from "@vansales/design-system";
 import { Facebook, Linkedin, MessageCircle } from "lucide-react";
 import { type Lang } from "@/lib/use-lang";
+import { localized } from "@/lib/i18n";
 
 const SOCIAL = [
   { label: "Facebook", href: "https://www.facebook.com/vansalesapp", icon: <Facebook className="h-[18px] w-[18px]" /> },
@@ -38,7 +39,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
       brand={<Logo height={26} icon="square" />}
       description={t.desc}
       social={SOCIAL}
-      columns={t.cols.map((c) => ({ title: c.title, links: c.links.map((l) => ({ label: l.label, href: l.href })) }))}
+      columns={t.cols.map((c) => ({ title: c.title, links: c.links.map((l) => ({ label: l.label, href: localized(l.href, lang) })) }))}
       bottom={t.bottom}
     />
   );

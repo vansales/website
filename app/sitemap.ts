@@ -21,10 +21,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms",
     "/cookie-policy",
   ];
+  const th = (p: string) => (p === "/" ? "/th" : `/th${p}`);
   return paths.map((p) => ({
     url: `${BASE}${p}`,
     lastModified: now,
     changeFrequency: p === "/" ? "weekly" : "monthly",
     priority: p === "/" ? 1 : p.startsWith("/features") ? 0.8 : 0.6,
+    alternates: {
+      languages: {
+        en: `${BASE}${p}`,
+        th: `${BASE}${th(p)}`,
+      },
+    },
   }));
 }

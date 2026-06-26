@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FEATURE_MOCKS, type MockKind } from "@/components/feature-mocks";
@@ -102,8 +103,8 @@ export default function FeaturesPage() {
           <h1 className="text-[2rem] font-bold leading-[1.15] tracking-tight sm:text-[2.75rem]">{t.title}</h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/75">{t.sub}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/#contact"><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{t.cta1} <ArrowRight className="h-4 w-4" /></span></a>
-            <a href="/#contact"><span className="inline-flex items-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{t.cta2}</span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{t.cta1} <ArrowRight className="h-4 w-4" /></span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{t.cta2}</span></a>
           </div>
         </div>
       </section>
@@ -131,7 +132,7 @@ export default function FeaturesPage() {
                   ))}
                 </ul>
                 {m.slug && (
-                  <Link href={`/features/${m.slug}`} className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  <Link href={localized(`/features/${m.slug}`, lang)} className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                     {t.learnMore} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 )}
@@ -156,8 +157,8 @@ export default function FeaturesPage() {
           <h2 className="text-3xl font-semibold tracking-tight">{t.ctaTitle}</h2>
           <p className="mt-4 text-primary-foreground/80">{t.ctaSub}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/#contact"><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{t.cta1} <ArrowRight className="h-4 w-4" /></span></a>
-            <a href="/#contact"><span className="inline-flex items-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{t.cta2}</span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-white/90">{t.cta1} <ArrowRight className="h-4 w-4" /></span></a>
+            <a href={localized("/#contact", lang)}><span className="inline-flex items-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">{t.cta2}</span></a>
           </div>
         </div>
       </section>

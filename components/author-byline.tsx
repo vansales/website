@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Users } from "lucide-react";
 import { type Lang } from "@/lib/use-lang";
 import { type AuthorPersona } from "@/lib/articles";
+import { localized } from "@/lib/i18n";
 
 type Variant = "full" | "short";
 
@@ -72,7 +73,7 @@ export function AuthorByline({
       )}
       <div>
         <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{writtenBy}</p>
-        <Link href="/about" className="font-semibold tracking-tight transition hover:text-primary">
+        <Link href={localized("/about", locale)} className="font-semibold tracking-tight transition hover:text-primary">
           {data.name}
         </Link>
         <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{data[variant]}</p>

@@ -14,6 +14,7 @@ import {
 } from "@vansales/design-system";
 import { CheckCircle2 } from "lucide-react";
 import { type Lang } from "@/lib/use-lang";
+import { localized } from "@/lib/i18n";
 
 // Web3Forms free plan accepts submissions from the client only, so the key is
 // public (NEXT_PUBLIC_). It can only post to the inbox tied to the key.
@@ -179,7 +180,7 @@ export function ContactForm({ copy, lang }: { copy: ContactCopy; lang: Lang }) {
       )}
       <p className="text-center text-xs text-muted-foreground">
         {copy.pdpaPre}
-        <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">{copy.pdpaLink}</Link>
+        <Link href={localized("/privacy", lang)} className="underline underline-offset-2 hover:text-foreground">{copy.pdpaLink}</Link>
       </p>
     </form>
   );

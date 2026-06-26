@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resolveLang } from "@/lib/server-lang";
+import { localized } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -250,13 +251,13 @@ export default function PrivacyPolicyPage() {
         <h2 className="mt-10 text-xl font-semibold">{t.cookiesH}</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {t.cookiesP}{" "}
-          <Link href="/cookie-policy" className="font-medium text-primary underline underline-offset-2">{t.cookiesLink}</Link>.
+          <Link href={localized("/cookie-policy", lang)} className="font-medium text-primary underline underline-offset-2">{t.cookiesLink}</Link>.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.contactH}</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {t.contactP}{" "}
-          <Link href="/#contact" className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
+          <Link href={localized("/#contact", lang)} className="font-medium text-primary underline underline-offset-2">{t.contactCta}</Link>.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">{t.updatesH}</h2>

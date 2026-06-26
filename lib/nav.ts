@@ -1,4 +1,5 @@
 import { type Lang } from "@/lib/use-lang";
+import { localized } from "@/lib/i18n";
 
 export interface NavChild {
   label: string;
@@ -115,5 +116,15 @@ const NAV: Record<Lang, NavNode[]> = {
 };
 
 export function navItems(lang: Lang): NavNode[] {
-  return NAV[lang];
+  // Prefix every internal href with the active locale (/th/...).
+  return NAV[lang].map((n) => ({
+    ...n,
+    href: n.href ? localized(n.href, lang) : undefined,
+    allHref: n.allHref ? localized(n.allHref, lang) : undefined,
+    children: n.children?.map((c) => ({ ...c, href: localized(c.href, lang) })),
+    groups: n.groups?.map((g) => ({
+      ...g,
+      items: g.items.map((it) => ({ ...it, href: localized(it.href, lang) })),
+    })),
+  }));
 }

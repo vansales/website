@@ -24,17 +24,23 @@ const T = {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const article = getArticle(params.slug, resolveLang());
   if (!article) return {};
-  const url = `/resources/${params.slug}`;
+  const enUrl = `/resources/${params.slug}`;
+  const thUrl = `/th/resources/${params.slug}`;
+  // Canonical follows the language actually rendered (a Thai URL that fell back
+  // to English content points back to the English canonical).
+  const canonical = article.lang === "th" ? thUrl : enUrl;
+  const languages: Record<string, string> = { en: enUrl, "x-default": enUrl };
+  if (article.langs.includes("th")) languages.th = thUrl;
   const images = article.cover ? [article.cover] : undefined;
   return {
     title: article.title,
     description: article.excerpt,
-    alternates: { canonical: url },
+    alternates: { canonical, languages },
     openGraph: {
       type: "article",
       title: article.title,
       description: article.excerpt,
-      url,
+      url: canonical,
       images,
     },
     twitter: {
