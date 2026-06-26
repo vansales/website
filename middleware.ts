@@ -1,5 +1,17 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+const LANG_COOKIE = "vansales-lang";
+
+/** First Accept-Language match wins: Thai only if preferred over English. */
+function prefersThai(accept: string): boolean {
+  for (const part of accept.split(",")) {
+    const code = part.trim().toLowerCase();
+    if (code.startsWith("th")) return true;
+    if (code.startsWith("en")) return false;
+  }
+  return false;
+}
+
 /**
  * Path-based i18n. English is the default and lives at the root (`/...`);
  * Thai is served under `/th/...`. `/en/...` also serves English (canonical
@@ -25,6 +37,25 @@ export function middleware(req: NextRequest) {
     lang = "en";
     prefix = "/en";
     stripped = pathname.slice(3) || "/";
+  }
+
+  // Auto-language on an unprefixed (root English) request: send a Thai-preferring
+  // visitor to /th on first arrival. A saved choice (the lang cookie, set by the
+  // switcher) always wins over the browser's Accept-Language. /th and /en are
+  // explicit and never redirected — so there is no loop and every language
+  // version stays directly reachable (e.g. for crawlers via hreflang).
+  if (!prefix) {
+    const saved = req.cookies.get(LANG_COOKIE)?.value;
+    const wantThai =
+      saved === "th" ||
+      (saved !== "en" && prefersThai(req.headers.get("accept-language") ?? ""));
+    if (wantThai) {
+      const url = req.nextUrl.clone();
+      url.pathname = pathname === "/" ? "/th" : `/th${pathname}`;
+      const res = NextResponse.redirect(url, 307);
+      res.headers.set("Vary", "Accept-Language, Cookie");
+      return res;
+    }
   }
 
   const headers = new Headers(req.headers);
