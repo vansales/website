@@ -6,7 +6,7 @@ import { CookieNotice } from "@/components/cookie-notice";
 import { BackToTop } from "@/components/back-to-top";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vansales.asia"),
+  metadataBase: new URL("https://vansales.ai"),
   title: {
     default: "Vansales — Sales & distribution platform",
     template: "%s — Vansales",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Vansales — Sales & distribution platform",
     description:
       "Manage orders, customers, stock, delivery routes and sales reports in real time — built for field sales and distribution teams.",
-    url: "https://vansales.asia",
+    url: "https://vansales.ai",
   },
   twitter: {
     card: "summary_large_image",
