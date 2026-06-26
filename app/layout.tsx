@@ -5,6 +5,7 @@ import { resolveLang } from "@/lib/server-lang";
 import { CookieNotice } from "@/components/cookie-notice";
 import { BackToTop } from "@/components/back-to-top";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vansales.ai"),
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <BackToTop />
         <CookieNotice lang={lang} />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
