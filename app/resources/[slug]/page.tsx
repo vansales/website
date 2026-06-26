@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ArticleBody } from "@/components/article-body";
 import { ArticleActions } from "@/components/article-actions";
+import { AuthorByline } from "@/components/author-byline";
 
 const T = {
   en: {
@@ -81,6 +82,8 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         <div className="mt-8">
           <ArticleBody content={article.content} />
         </div>
+
+        {article.author && <AuthorByline persona={article.author} locale={article.lang} />}
 
         <ArticleActions slug={params.slug} title={article.title} lang={lang} />
       </article>

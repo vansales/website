@@ -2,6 +2,7 @@
 title: The Art of Distribution
 excerpt: In FMCG, success isn't measured by who makes the best product — it's measured by who can put it in front of the consumer the fastest, the widest, and the most consistently.
 date: 2026-03-01
+author: founder
 tag: Perspective
 cover: /marketing/art-of-distribution-cover.jpg
 coverAlt: Speaking on stage about the art of distribution
