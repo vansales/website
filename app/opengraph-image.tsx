@@ -24,7 +24,7 @@ export default function Image() {
         <div style={{ display: "flex", fontSize: "44px", marginTop: "36px", maxWidth: "960px", lineHeight: 1.3 }}>
           All-in-one sales &amp; distribution — orders, stock, routes, delivery and reports in real time.
         </div>
-        <div style={{ display: "flex", fontSize: "30px", marginTop: "44px", opacity: 0.8 }}>vansales.asia</div>
+        <div style={{ display: "flex", fontSize: "30px", marginTop: "44px", opacity: 0.8 }}>vansales.ai</div>
       </div>
     ),
     { ...size },

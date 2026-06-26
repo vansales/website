@@ -86,7 +86,7 @@ export function ContactForm({ copy, lang }: { copy: ContactCopy; lang: Lang }) {
           subject: `New contact${topic ? ` · ${topic}` : ""} from ${name}${company ? ` (${company})` : ""}`,
           from_name: "Vansales website",
           name,
-          email: email || "no-email@vansales.asia",
+          email: email || "no-email@vansales.ai",
           phone: phone || "-",
           company: company || "-",
           Topic: topic || "-",
