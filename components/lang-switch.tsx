@@ -22,6 +22,11 @@ export function LangSwitch({ lang, onDark }: { lang: Lang; onDark?: boolean }) {
   const pathname = usePathname();
   const go = (l: Lang) => {
     if (l === lang) return;
+    // Remember the explicit choice so it wins over the browser language on
+    // future visits — and so the middleware doesn't auto-redirect a Thai
+    // visitor who deliberately picked English at "/".
+    const secure = window.location.protocol === "https:" ? ";secure" : "";
+    document.cookie = `vansales-lang=${l};path=/;max-age=31536000;samesite=lax${secure}`;
     // Language is resolved server-side from the URL, and the middleware rewrites
     // /th/x and /x to the same route — a soft router.push reuses the cached tree
     // and the language doesn't change. A full navigation always re-renders.
