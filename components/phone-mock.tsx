@@ -17,53 +17,53 @@ import { cn } from "@vansales/design-system";
 
 type Screen = "order" | "sales" | "route";
 
-const ORDER = {
-  appbar: "New order",
-  badge: "Synced",
-  customer: "Somchai Minimart",
-  customerSub: "Route 7 · Bang Na",
-  items: [
-    { n: "Drinking water ×24", p: "฿1,200" },
-    { n: "UHT milk ×12", p: "฿540" },
-    { n: "Instant noodles ×30", p: "฿180" },
-  ],
-  totalLabel: "Total",
-  total: "฿1,920",
-  pay: "Collect payment",
-  pm: ["Cash", "Transfer", "QR"],
-};
-const SALES = {
-  appbar: "My sales",
-  live: "Live",
-  kpiLabel: "Sales today",
-  kpiValue: "฿128,400",
-  kpiDelta: "▲ 12% vs yesterday",
-  chartLabel: "Last 7 days",
-  topLabel: "Top products",
-  top: [
-    { n: "Drinking water", v: "฿42,300" },
-    { n: "UHT milk", v: "฿28,100" },
-    { n: "Instant noodles", v: "฿19,800" },
-  ],
-};
-const ROUTE = {
-  appbar: "Today's route",
-  count: "4 stops",
-  stopsLabel: "Stops",
-  next: "Next",
-  start: "Start navigation",
-  stops: [
-    { n: "Somchai Minimart", t: "09:00 · done", st: "done" },
-    { n: "Rungrueang Store", t: "10:30 · 1.2 km", st: "next" },
-    { n: "Chok Dee Mart", t: "11:15 · 3.0 km", st: "pending" },
-    { n: "Wattana Shop", t: "13:00 · 5.4 km", st: "pending" },
-  ],
-};
-const TOGGLE = { order: "Order", sales: "Sales", route: "Route" } as const;
-
 /** The home-page phone mock (order / sales / route switcher), copied so the
  * Features "Works on mobile" section can default to the sales report. */
-export function PhoneMock({ defaultScreen = "sales" }: { defaultScreen?: Screen }) {
+export function PhoneMock({ defaultScreen = "sales", lang = "en" }: { defaultScreen?: Screen; lang?: "en" | "th" }) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
+  const ORDER = {
+    appbar: L("New order", "ออเดอร์ใหม่"),
+    badge: L("Synced", "ซิงค์แล้ว"),
+    customer: L("Somchai Minimart", "ร้านสมชายมินิมาร์ท"),
+    customerSub: L("Route 7 · Bang Na", "สาย 7 · บางนา"),
+    items: [
+      { n: L("Drinking water ×24", "น้ำดื่ม ×24"), p: "฿1,200" },
+      { n: L("UHT milk ×12", "นมยูเอชที ×12"), p: "฿540" },
+      { n: L("Instant noodles ×30", "บะหมี่กึ่งสำเร็จรูป ×30"), p: "฿180" },
+    ],
+    totalLabel: L("Total", "ยอดรวม"),
+    total: "฿1,920",
+    pay: L("Collect payment", "รับชำระเงิน"),
+    pm: [L("Cash", "เงินสด"), L("Transfer", "โอน"), L("QR", "QR")],
+  };
+  const SALES = {
+    appbar: L("My sales", "ยอดขายของฉัน"),
+    live: L("Live", "เรียลไทม์"),
+    kpiLabel: L("Sales today", "ยอดขายวันนี้"),
+    kpiValue: "฿128,400",
+    kpiDelta: L("▲ 12% vs yesterday", "▲ 12% จากเมื่อวาน"),
+    chartLabel: L("Last 7 days", "7 วันล่าสุด"),
+    topLabel: L("Top products", "สินค้าขายดี"),
+    top: [
+      { n: L("Drinking water", "น้ำดื่ม"), v: "฿42,300" },
+      { n: L("UHT milk", "นมยูเอชที"), v: "฿28,100" },
+      { n: L("Instant noodles", "บะหมี่กึ่งสำเร็จรูป"), v: "฿19,800" },
+    ],
+  };
+  const ROUTE = {
+    appbar: L("Today's route", "เส้นทางวันนี้"),
+    count: L("4 stops", "4 จุด"),
+    stopsLabel: L("Stops", "จุดส่ง"),
+    next: L("Next", "ถัดไป"),
+    start: L("Start navigation", "เริ่มนำทาง"),
+    stops: [
+      { n: L("Somchai Minimart", "ร้านสมชายมินิมาร์ท"), t: L("09:00 · done", "09:00 · เสร็จแล้ว"), st: "done" },
+      { n: L("Rungrueang Store", "ร้านรุ่งเรือง"), t: "10:30 · 1.2 km", st: "next" },
+      { n: L("Chok Dee Mart", "ร้านโชคดีมาร์ท"), t: "11:15 · 3.0 km", st: "pending" },
+      { n: L("Wattana Shop", "ร้านวัฒนา"), t: "13:00 · 5.4 km", st: "pending" },
+    ],
+  };
+  const TOGGLE = { order: L("Order", "ออเดอร์"), sales: L("Sales", "ยอดขาย"), route: L("Route", "เส้นทาง") } as const;
   const [screen, setScreen] = useState<Screen>(defaultScreen);
   const pmIcons = [Banknote, CreditCard, QrCode];
   const bars = [40, 55, 48, 66, 60, 82, 95];
