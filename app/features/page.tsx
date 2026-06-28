@@ -113,7 +113,7 @@ export default function FeaturesPage() {
       {t.sections.map((s, i) => {
         const m = MEDIA[i];
         const flipped = i % 2 === 1;
-        const Mock = FEATURE_MOCKS[m.mock];
+        const Mock = FEATURE_MOCKS[m.mock] as (p: { lang?: "en" | "th" }) => JSX.Element;
         return (
           <section key={s.title} className={i % 2 === 1 ? "bg-muted/30 px-4 py-20 sm:px-6" : "px-4 py-20 sm:px-6"}>
             <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
@@ -142,7 +142,7 @@ export default function FeaturesPage() {
                 <div className="relative flex min-h-[280px] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#eef4fc] to-[#f8fafc] p-6 ring-1 ring-black/5 sm:p-10">
                   <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8fc4ff]/30 blur-3xl" />
                   <div className="relative">
-                    {m.mock === "mobile" ? <PhoneMock defaultScreen="sales" /> : <Mock />}
+                    {m.mock === "mobile" ? <PhoneMock defaultScreen="sales" lang={lang} /> : <Mock lang={lang} />}
                   </div>
                 </div>
               </div>

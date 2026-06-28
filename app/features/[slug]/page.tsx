@@ -438,8 +438,8 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
   const lang = resolveLang();
   const t = entry[lang];
   const ui = UI[lang];
-  const Mock = FEATURE_MOCKS[entry.mock];
-  const Mock2 = entry.mock2 ? FEATURE_MOCKS[entry.mock2] : null;
+  const Mock = FEATURE_MOCKS[entry.mock] as (p: { lang?: "en" | "th" }) => JSX.Element;
+  const Mock2 = entry.mock2 ? (FEATURE_MOCKS[entry.mock2] as (p: { lang?: "en" | "th" }) => JSX.Element) : null;
   const others = Object.keys(DETAILS).filter((s) => s !== params.slug);
 
   return (
@@ -481,7 +481,7 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
           </div>
           <div className="relative flex min-h-[280px] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#eef4fc] to-[#f8fafc] p-6 ring-1 ring-black/5 sm:p-10">
             <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8fc4ff]/30 blur-3xl" />
-            <div className="relative"><Mock /></div>
+            <div className="relative"><Mock lang={lang} /></div>
           </div>
         </div>
       </section>
@@ -492,7 +492,7 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
           <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
             <div className="relative order-2 flex min-h-[280px] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#eef4fc] to-[#f8fafc] p-6 ring-1 ring-black/5 sm:p-10 lg:order-1">
               <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8fc4ff]/30 blur-3xl" />
-              <div className="relative"><Mock2 /></div>
+              <div className="relative"><Mock2 lang={lang} /></div>
             </div>
             <p className="order-1 text-lg leading-relaxed text-muted-foreground lg:order-2">{t.intro2}</p>
           </div>

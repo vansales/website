@@ -29,7 +29,8 @@ function Frame({ url, children }: { url: string; children: ReactNode }) {
 }
 
 /** Reports / dashboard — browser frame with KPIs + bar chart. */
-export function ReportsMock() {
+export function ReportsMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const bars = [42, 58, 50, 67, 78, 90];
   return (
     <div className="w-full max-w-sm overflow-hidden rounded-xl border bg-card shadow-2xl">
@@ -41,17 +42,17 @@ export function ReportsMock() {
       </div>
       <div className="p-3 text-[11px]">
         <div className="mb-3 flex items-center justify-between">
-          <span className="font-semibold">Sales overview</span>
-          <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">Today</span>
+          <span className="font-semibold">{L("Sales overview", "ภาพรวมยอดขาย")}</span>
+          <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{L("Today", "วันนี้")}</span>
         </div>
         <div className="grid grid-cols-3 gap-2">
           <div className="rounded-lg bg-primary p-2 text-primary-foreground">
-            <div className="text-[9px] opacity-80">Sales today</div>
+            <div className="text-[9px] opacity-80">{L("Sales today", "ยอดขายวันนี้")}</div>
             <div className="text-sm font-semibold">฿128,400</div>
             <div className="text-[9px] font-medium">▲ 12%</div>
           </div>
-          <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">Orders</div><div className="text-sm font-semibold">48</div></div>
-          <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">Target</div><div className="text-sm font-semibold">82%</div></div>
+          <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">{L("Orders", "ออเดอร์")}</div><div className="text-sm font-semibold">48</div></div>
+          <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">{L("Target", "เป้า")}</div><div className="text-sm font-semibold">82%</div></div>
         </div>
         <div className="mt-3 rounded-lg border p-2">
           <div className="flex items-end gap-1.5" style={{ height: 70 }}>
@@ -61,8 +62,8 @@ export function ReportsMock() {
           </div>
         </div>
         <div className="mt-3 flex items-center justify-between rounded-lg border px-2.5 py-2">
-          <span className="font-medium">SO-1042 · Rungrueang</span>
-          <span className="rounded-full bg-success/15 px-2 py-0.5 text-[9px] font-medium text-success">Paid</span>
+          <span className="font-medium">SO-1042 · {L("Rungrueang", "รุ่งเรือง")}</span>
+          <span className="rounded-full bg-success/15 px-2 py-0.5 text-[9px] font-medium text-success">{L("Paid", "ชำระแล้ว")}</span>
         </div>
       </div>
     </div>
@@ -70,11 +71,12 @@ export function ReportsMock() {
 }
 
 /** Mobile — phone showing the order/bill screen. */
-export function MobileMock() {
+export function MobileMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const items = [
-    ["Drinking water ×24", "฿1,200"],
-    ["UHT milk ×12", "฿540"],
-    ["Instant noodles ×30", "฿180"],
+    [L("Drinking water ×24", "น้ำดื่ม ×24"), "฿1,200"],
+    [L("UHT milk ×12", "นมยูเอชที ×12"), "฿540"],
+    [L("Instant noodles ×30", "บะหมี่กึ่งสำเร็จรูป ×30"), "฿180"],
   ];
   return (
     <div className="w-[200px] rounded-[2.2rem] border border-black/10 bg-zinc-900 p-2 shadow-2xl">
@@ -82,15 +84,15 @@ export function MobileMock() {
         <div className="relative bg-primary px-3 pb-2.5 pt-2 text-primary-foreground">
           <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-black/25" />
           <div className="flex items-center gap-1.5 text-[12px] font-semibold">
-            <ChevronLeft className="h-3.5 w-3.5" /> New order
-            <span className="ml-auto rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-medium">Synced</span>
+            <ChevronLeft className="h-3.5 w-3.5" /> {L("New order", "ออเดอร์ใหม่")}
+            <span className="ml-auto rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-medium">{L("Synced", "ซิงค์แล้ว")}</span>
           </div>
         </div>
         <div className="flex flex-1 flex-col p-2.5 text-[11px]">
           <div className="space-y-2">
             <div className="flex items-center gap-2 rounded-lg border p-2">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary"><ShoppingCart className="h-3.5 w-3.5" /></span>
-              <div className="leading-tight"><div className="font-semibold text-foreground">Somchai Minimart</div><div className="text-[9px] text-muted-foreground">Route 7 · Bang Na</div></div>
+              <div className="leading-tight"><div className="font-semibold text-foreground">{L("Somchai Minimart", "ร้านสมชายมินิมาร์ท")}</div><div className="text-[9px] text-muted-foreground">{L("Route 7 · Bang Na", "สาย 7 · บางนา")}</div></div>
             </div>
             <div className="rounded-lg border">
               {items.map((it, i) => (
@@ -99,12 +101,12 @@ export function MobileMock() {
                   <span className="font-medium text-foreground">{it[1]}</span>
                 </div>
               ))}
-              <div className="flex justify-between border-t px-2.5 py-2.5"><span className="text-muted-foreground">Total</span><span className="font-bold text-primary">฿1,920</span></div>
+              <div className="flex justify-between border-t px-2.5 py-2.5"><span className="text-muted-foreground">{L("Total", "ยอดรวม")}</span><span className="font-bold text-primary">฿1,920</span></div>
             </div>
           </div>
           <div className="flex-1" />
           <div className="flex items-center justify-center gap-1.5 rounded-lg bg-primary py-2.5 text-[12px] font-semibold text-primary-foreground">
-            <Wallet className="h-3.5 w-3.5" /> Collect payment
+            <Wallet className="h-3.5 w-3.5" /> {L("Collect payment", "รับชำระเงิน")}
           </div>
         </div>
         <div className="pb-2 pt-0.5"><div className="mx-auto h-1 w-16 rounded-full bg-foreground/20" /></div>
@@ -114,11 +116,12 @@ export function MobileMock() {
 }
 
 /** Route map — card with a stylised map + stop list. */
-export function RouteMock() {
+export function RouteMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const stops = [
-    { n: "Somchai Minimart", t: "09:00 · done", st: "done" as const },
-    { n: "Rungrueang Store", t: "10:30 · 1.2 km", st: "next" as const },
-    { n: "Chok Dee Mart", t: "11:15 · 3.0 km", st: "pending" as const },
+    { n: L("Somchai Minimart", "ร้านสมชายมินิมาร์ท"), t: L("09:00 · done", "09:00 · เสร็จแล้ว"), st: "done" as const },
+    { n: L("Rungrueang Store", "ร้านรุ่งเรือง"), t: "10:30 · 1.2 km", st: "next" as const },
+    { n: L("Chok Dee Mart", "ร้านโชคดีมาร์ท"), t: "11:15 · 3.0 km", st: "pending" as const },
   ];
   return (
     <div className="w-full max-w-sm overflow-hidden rounded-2xl border bg-card shadow-2xl">
@@ -157,7 +160,7 @@ export function RouteMock() {
                 <div className="font-medium text-foreground">{s.n}</div>
                 <div className="text-[10px] text-muted-foreground">{s.t}</div>
               </div>
-              {next && <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-medium text-primary">Next</span>}
+              {next && <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-medium text-primary">{L("Next", "ถัดไป")}</span>}
             </div>
           );
         })}
@@ -197,15 +200,16 @@ function QrPattern({ size = 104 }: { size?: number }) {
 }
 
 /** Payment — collect screen with amount, QR and methods. */
-export function PaymentMock() {
+export function PaymentMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const methods = [
-    { icon: <QrCode className="h-3.5 w-3.5" />, label: "QR", on: true },
-    { icon: <Banknote className="h-3.5 w-3.5" />, label: "Cash" },
-    { icon: <CreditCard className="h-3.5 w-3.5" />, label: "Transfer" },
+    { icon: <QrCode className="h-3.5 w-3.5" />, label: L("QR", "QR"), on: true },
+    { icon: <Banknote className="h-3.5 w-3.5" />, label: L("Cash", "เงินสด") },
+    { icon: <CreditCard className="h-3.5 w-3.5" />, label: L("Transfer", "โอน") },
   ];
   return (
     <div className="w-[260px] rounded-2xl border bg-card p-5 text-center shadow-2xl">
-      <div className="text-[11px] text-muted-foreground">Amount due · Somchai Minimart</div>
+      <div className="text-[11px] text-muted-foreground">{L("Amount due · Somchai Minimart", "ยอดที่ต้องชำระ · ร้านสมชายมินิมาร์ท")}</div>
       <div className="mt-1 text-3xl font-bold tracking-tight text-foreground">฿1,920</div>
       <div className="mx-auto mt-4 w-fit rounded-xl border bg-white p-2.5 shadow-sm">
         <QrPattern size={104} />
@@ -218,27 +222,28 @@ export function PaymentMock() {
         ))}
       </div>
       <div className="mt-4 rounded-lg bg-primary py-2.5 text-sm font-semibold text-primary-foreground">
-        Confirm payment
+        {L("Confirm payment", "ยืนยันการชำระเงิน")}
       </div>
     </div>
   );
 }
 
 /** Orders — browser frame: order detail with a status pipeline. */
-export function OrderMock() {
-  const steps = ["Taken", "Picked", "Delivering", "Closed"];
+export function OrderMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
+  const steps = [L("Taken", "รับออเดอร์"), L("Picked", "จัดของ"), L("Delivering", "กำลังส่ง"), L("Closed", "ปิดบิล")];
   const active = 2;
   const items = [
-    ["Drinking water ×24", "฿1,200"],
-    ["UHT milk ×12", "฿540"],
-    ["Instant noodles ×30", "฿180"],
+    [L("Drinking water ×24", "น้ำดื่ม ×24"), "฿1,200"],
+    [L("UHT milk ×12", "นมยูเอชที ×12"), "฿540"],
+    [L("Instant noodles ×30", "บะหมี่กึ่งสำเร็จรูป ×30"), "฿180"],
   ];
   return (
     <Frame url="app.vansales.asia/orders/SO-1042">
       <div className="p-3 text-[11px]">
         <div className="mb-3 flex items-center justify-between">
-          <span className="font-semibold">Order SO-1042</span>
-          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">In delivery</span>
+          <span className="font-semibold">{L("Order SO-1042", "ออเดอร์ SO-1042")}</span>
+          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">{L("In delivery", "กำลังส่ง")}</span>
         </div>
         <div className="flex items-center">
           {steps.map((st, i) => (
@@ -251,17 +256,17 @@ export function OrderMock() {
           ))}
         </div>
         <div className="mt-1.5 text-[9px] text-muted-foreground">
-          Taken → Picked → <span className="font-medium text-primary">Delivering</span> → Closed
+          {steps[0]} → {steps[1]} → <span className="font-medium text-primary">{steps[2]}</span> → {steps[3]}
         </div>
         <div className="mt-3 rounded-lg border">
-          <div className="border-b px-2.5 py-1.5 font-medium">Somchai Minimart</div>
+          <div className="border-b px-2.5 py-1.5 font-medium">{L("Somchai Minimart", "ร้านสมชายมินิมาร์ท")}</div>
           {items.map((it, i) => (
             <div key={i} className="flex justify-between border-b px-2.5 py-1.5">
               <span className="text-foreground">{it[0]}</span>
               <span className="font-medium text-foreground">{it[1]}</span>
             </div>
           ))}
-          <div className="flex justify-between px-2.5 py-2"><span className="text-muted-foreground">Total</span><span className="font-bold text-primary">฿1,920</span></div>
+          <div className="flex justify-between px-2.5 py-2"><span className="text-muted-foreground">{L("Total", "ยอดรวม")}</span><span className="font-bold text-primary">฿1,920</span></div>
         </div>
       </div>
     </Frame>
@@ -269,22 +274,23 @@ export function OrderMock() {
 }
 
 /** Customers — profile card with credit and purchase history. */
-export function CustomerMock() {
-  const buys = [["12 Jun", "฿1,920"], ["5 Jun", "฿2,340"], ["28 May", "฿1,680"]];
+export function CustomerMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
+  const buys = [[L("12 Jun", "12 มิ.ย."), "฿1,920"], [L("5 Jun", "5 มิ.ย."), "฿2,340"], [L("28 May", "28 พ.ค."), "฿1,680"]];
   return (
     <div className="w-full max-w-xs rounded-2xl border bg-card p-4 text-[11px] shadow-2xl">
       <div className="flex items-center gap-3">
         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary"><Users className="h-5 w-5" /></span>
         <div>
-          <div className="text-sm font-semibold text-foreground">Somchai Minimart</div>
-          <div className="text-[10px] text-muted-foreground">Route 7 · Bang Na</div>
+          <div className="text-sm font-semibold text-foreground">{L("Somchai Minimart", "ร้านสมชายมินิมาร์ท")}</div>
+          <div className="text-[10px] text-muted-foreground">{L("Route 7 · Bang Na", "สาย 7 · บางนา")}</div>
         </div>
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2">
-        <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">Credit limit</div><div className="text-sm font-semibold">฿50,000</div></div>
-        <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">Outstanding</div><div className="text-sm font-semibold">฿12,400</div></div>
+        <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">{L("Credit limit", "วงเงินเครดิต")}</div><div className="text-sm font-semibold">฿50,000</div></div>
+        <div className="rounded-lg border p-2"><div className="text-[9px] text-muted-foreground">{L("Outstanding", "ยอดค้างชำระ")}</div><div className="text-sm font-semibold">฿12,400</div></div>
       </div>
-      <div className="mt-3 text-[10px] font-medium text-muted-foreground">Recent purchases</div>
+      <div className="mt-3 text-[10px] font-medium text-muted-foreground">{L("Recent purchases", "ประวัติการซื้อล่าสุด")}</div>
       <div className="mt-1 rounded-lg border">
         {buys.map((b, i) => (
           <div key={i} className={`flex justify-between px-2.5 py-1.5 ${i > 0 ? "border-t" : ""}`}>
@@ -298,18 +304,19 @@ export function CustomerMock() {
 }
 
 /** Stock — on-hand list with quantity bars and a low-stock alert. */
-export function StockMock() {
+export function StockMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const rows = [
-    { n: "Drinking water 600ml", q: "1,240", pct: 80, low: false },
-    { n: "UHT milk 1L", q: "320", pct: 22, low: true },
-    { n: "Instant noodles", q: "4,800", pct: 95, low: false },
-    { n: "Snack pack", q: "150", pct: 12, low: true },
+    { n: L("Drinking water 600ml", "น้ำดื่ม 600 มล."), q: "1,240", pct: 80, low: false },
+    { n: L("UHT milk 1L", "นมยูเอชที 1 ลิตร"), q: "320", pct: 22, low: true },
+    { n: L("Instant noodles", "บะหมี่กึ่งสำเร็จรูป"), q: "4,800", pct: 95, low: false },
+    { n: L("Snack pack", "ขนมแพ็ค"), q: "150", pct: 12, low: true },
   ];
   return (
     <div className="w-full max-w-sm rounded-2xl border bg-card p-4 text-[11px] shadow-2xl">
       <div className="mb-3 flex items-center justify-between">
-        <span className="flex items-center gap-1.5 font-semibold"><Package className="h-4 w-4 text-primary" /> Stock on hand</span>
-        <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">Main warehouse</span>
+        <span className="flex items-center gap-1.5 font-semibold"><Package className="h-4 w-4 text-primary" /> {L("Stock on hand", "สต๊อกคงเหลือ")}</span>
+        <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{L("Main warehouse", "คลังหลัก")}</span>
       </div>
       <div className="space-y-2.5">
         {rows.map((r, i) => (
@@ -318,7 +325,7 @@ export function StockMock() {
               <span className="text-foreground">{r.n}</span>
               <span className={`font-medium ${r.low ? "text-destructive" : "text-foreground"}`}>
                 {r.q}
-                {r.low && <span className="ml-1.5 rounded-full bg-destructive/10 px-1.5 py-0.5 text-[8px] font-semibold text-destructive">Low</span>}
+                {r.low && <span className="ml-1.5 rounded-full bg-destructive/10 px-1.5 py-0.5 text-[8px] font-semibold text-destructive">{L("Low", "ใกล้หมด")}</span>}
               </span>
             </div>
             <div className="mt-1 h-1.5 rounded-full bg-muted"><div className={`h-full rounded-full ${r.low ? "bg-destructive" : "bg-primary"}`} style={{ width: `${r.pct}%` }} /></div>
@@ -330,16 +337,17 @@ export function StockMock() {
 }
 
 /** Delivery — progress with a list of drops and their status. */
-export function DeliveryMock() {
+export function DeliveryMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const drops = [
-    { n: "Somchai Minimart", t: "Delivered 09:05", st: "done" as const },
-    { n: "Rungrueang Store", t: "ETA 10:40", st: "next" as const },
-    { n: "Chok Dee Mart", t: "Pending", st: "pending" as const },
+    { n: L("Somchai Minimart", "ร้านสมชายมินิมาร์ท"), t: L("Delivered 09:05", "ส่งแล้ว 09:05"), st: "done" as const },
+    { n: L("Rungrueang Store", "ร้านรุ่งเรือง"), t: L("ETA 10:40", "ถึงประมาณ 10:40"), st: "next" as const },
+    { n: L("Chok Dee Mart", "ร้านโชคดีมาร์ท"), t: L("Pending", "รอส่ง"), st: "pending" as const },
   ];
   return (
     <div className="w-full max-w-sm rounded-2xl border bg-card p-4 text-[11px] shadow-2xl">
       <div className="mb-1 flex items-center justify-between">
-        <span className="flex items-center gap-1.5 font-semibold"><Truck className="h-4 w-4 text-primary" /> Today&apos;s delivery</span>
+        <span className="flex items-center gap-1.5 font-semibold"><Truck className="h-4 w-4 text-primary" /> {L("Today's delivery", "การจัดส่งวันนี้")}</span>
         <span className="font-semibold text-primary">18/20</span>
       </div>
       <div className="mb-3 h-2 rounded-full bg-muted"><div className="h-full rounded-full bg-primary" style={{ width: "90%" }} /></div>
@@ -353,7 +361,7 @@ export function DeliveryMock() {
                 {done ? <Check className="h-3 w-3" /> : i + 1}
               </span>
               <div className="flex-1 leading-tight"><div className="font-medium text-foreground">{d.n}</div><div className="text-[9px] text-muted-foreground">{d.t}</div></div>
-              {next && <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[8px] font-medium text-primary">Next</span>}
+              {next && <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[8px] font-medium text-primary">{L("Next", "ถัดไป")}</span>}
             </div>
           );
         })}
@@ -362,9 +370,10 @@ export function DeliveryMock() {
   );
 }
 
-export function PaymentIntegrationsMock() {
+export function PaymentIntegrationsMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const methods = [
-    { label: "QR Payment", icon: <QrCode className="h-3 w-3" /> },
+    { label: L("QR Payment", "จ่ายผ่าน QR"), icon: <QrCode className="h-3 w-3" /> },
     { label: "TrueMoney", icon: <Wallet className="h-3 w-3" /> },
   ];
   const gateways = ["Stripe", "Beam", "Omise", "2C2P"];
@@ -375,14 +384,14 @@ export function PaymentIntegrationsMock() {
           <Check className="h-5 w-5" />
         </span>
         <div className="min-w-0 flex-1">
-          <div className="text-sm font-semibold text-foreground">Payment received · ฿1,920</div>
-          <div className="text-[11px] text-muted-foreground">PromptPay QR · auto-confirmed</div>
+          <div className="text-sm font-semibold text-foreground">{L("Payment received · ฿1,920", "รับชำระเงินแล้ว · ฿1,920")}</div>
+          <div className="text-[11px] text-muted-foreground">{L("PromptPay QR · auto-confirmed", "PromptPay QR · ยืนยันอัตโนมัติ")}</div>
         </div>
         <span className="flex items-center gap-1 rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-semibold text-green-600">
-          <span className="h-1.5 w-1.5 rounded-full bg-green-500" /> Live
+          <span className="h-1.5 w-1.5 rounded-full bg-green-500" /> {L("Live", "เรียลไทม์")}
         </span>
       </div>
-      <div className="mt-4 text-[11px] font-medium text-muted-foreground">Payment methods</div>
+      <div className="mt-4 text-[11px] font-medium text-muted-foreground">{L("Payment methods", "ช่องทางชำระเงิน")}</div>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {methods.map((m) => (
           <span key={m.label} className="inline-flex items-center gap-1 rounded-md border bg-muted/40 px-2 py-1 text-[11px] font-medium text-foreground">
@@ -390,7 +399,7 @@ export function PaymentIntegrationsMock() {
           </span>
         ))}
       </div>
-      <div className="mt-3 text-[11px] font-medium text-muted-foreground">Payment gateways</div>
+      <div className="mt-3 text-[11px] font-medium text-muted-foreground">{L("Payment gateways", "เกตเวย์ชำระเงิน")}</div>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {gateways.map((g) => (
           <span key={g} className="inline-flex items-center gap-1 rounded-md border bg-muted/40 px-2 py-1 text-[11px] font-medium text-foreground">
@@ -402,28 +411,29 @@ export function PaymentIntegrationsMock() {
   );
 }
 
-export function OrderUnitsMock() {
+export function OrderUnitsMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
   const lines = [
-    { n: "Drinking water 600ml", u: "2 ลัง", p: "฿1,200" },
-    { n: "UHT milk ×12", u: "1 ลัง · 2 โหล", p: "฿540", hot: true },
-    { n: "Instant noodles", u: "30 ชิ้น", p: "฿180" },
+    { n: L("Drinking water 600ml", "น้ำดื่ม 600 มล."), u: L("2 cases", "2 ลัง"), p: "฿1,200" },
+    { n: L("UHT milk ×12", "นมยูเอชที ×12"), u: L("1 case · 2 dozen", "1 ลัง · 2 โหล"), p: "฿540", hot: true },
+    { n: L("Instant noodles", "บะหมี่กึ่งสำเร็จรูป"), u: L("30 pcs", "30 ชิ้น"), p: "฿180" },
   ];
-  const units = ["ชิ้น", "แพ็ค", "โหล", "ลัง"];
+  const units = [L("Piece", "ชิ้น"), L("Pack", "แพ็ค"), L("Dozen", "โหล"), L("Case", "ลัง")];
   return (
     <div className="relative">
-      <div className="w-[268px] rounded-[2.6rem] border border-black/10 bg-zinc-900 p-2.5 shadow-2xl">
-        <div className="flex min-h-[470px] flex-col overflow-hidden rounded-[2.1rem] bg-background">
+      <div className="w-[244px] rounded-[2.2rem] border border-black/10 bg-zinc-900 p-2 shadow-2xl">
+        <div className="flex min-h-[470px] flex-col overflow-hidden rounded-[1.7rem] bg-background">
           <div className="bg-primary px-3 pb-2.5 pt-2 text-primary-foreground">
             <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-black/25" />
             <div className="flex items-center gap-1.5 text-[12px] font-semibold">
-              <ChevronLeft className="h-3.5 w-3.5" /> New order
-              <span className="ml-auto rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-medium">3 items</span>
+              <ChevronLeft className="h-3.5 w-3.5" /> {L("New order", "ออเดอร์ใหม่")}
+              <span className="ml-auto rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-medium">{L("3 items", "3 รายการ")}</span>
             </div>
           </div>
           <div className="flex flex-1 flex-col gap-2 p-2.5 text-[11px]">
             <div className="flex items-center gap-2 rounded-lg border p-2">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary"><ShoppingCart className="h-3.5 w-3.5" /></span>
-              <div className="leading-tight"><div className="font-semibold text-foreground">Somchai Minimart</div><div className="text-[9px] text-muted-foreground">Route 7 · Bang Na</div></div>
+              <div className="leading-tight"><div className="font-semibold text-foreground">{L("Somchai Minimart", "ร้านสมชายมินิมาร์ท")}</div><div className="text-[9px] text-muted-foreground">{L("Route 7 · Bang Na", "สาย 7 · บางนา")}</div></div>
             </div>
             <div className="overflow-hidden rounded-lg border">
               {lines.map((l, i) => (
@@ -436,46 +446,47 @@ export function OrderUnitsMock() {
                 </div>
               ))}
             </div>
-            <div className="rounded-lg border border-dashed py-1.5 text-center text-[10px] text-muted-foreground">+ เพิ่มสินค้า</div>
+            <div className="rounded-lg border border-dashed py-1.5 text-center text-[10px] text-muted-foreground">{L("+ Add product", "+ เพิ่มสินค้า")}</div>
             <div className="flex-1" />
-            <div className="flex justify-between rounded-lg border px-2.5 py-2"><span className="text-muted-foreground">Total</span><span className="font-bold text-primary">฿1,920</span></div>
-            <div className="rounded-lg bg-primary py-2.5 text-center text-[12px] font-semibold text-primary-foreground">Confirm order</div>
+            <div className="flex justify-between rounded-lg border px-2.5 py-2"><span className="text-muted-foreground">{L("Total", "ยอดรวม")}</span><span className="font-bold text-primary">฿1,920</span></div>
+            <div className="rounded-lg bg-primary py-2.5 text-center text-[12px] font-semibold text-primary-foreground">{L("Confirm order", "ยืนยันออเดอร์")}</div>
           </div>
           <div className="pb-2 pt-0.5"><div className="mx-auto h-1 w-16 rounded-full bg-foreground/20" /></div>
         </div>
       </div>
       {/* floating zoom callout — unit & promotion picker */}
       <div className="absolute bottom-28 -left-6 w-[156px] rounded-xl border bg-card p-2.5 shadow-xl">
-        <div className="text-[10px] font-semibold text-foreground">UHT milk ×12</div>
-        <div className="mt-0.5 text-[8px] text-muted-foreground">เลือกหน่วย</div>
+        <div className="text-[10px] font-semibold text-foreground">{L("UHT milk ×12", "นมยูเอชที ×12")}</div>
+        <div className="mt-0.5 text-[8px] text-muted-foreground">{L("Choose unit", "เลือกหน่วย")}</div>
         <div className="mt-1.5 flex flex-wrap gap-1">
-          {units.map((u) => (
-            <span key={u} className={`rounded-md px-1.5 py-0.5 text-[9px] font-medium ${u === "ลัง" ? "bg-primary text-primary-foreground" : "border text-muted-foreground"}`}>{u}</span>
+          {units.map((u, i) => (
+            <span key={u} className={`rounded-md px-1.5 py-0.5 text-[9px] font-medium ${i === 3 ? "bg-primary text-primary-foreground" : "border text-muted-foreground"}`}>{u}</span>
           ))}
         </div>
-        <div className="mt-1.5 inline-flex items-center gap-1 rounded-md bg-primary/10 px-1.5 py-0.5 text-[9px] font-medium text-primary"><Tag className="h-2.5 w-2.5" /> ซื้อ 10 แถม 1</div>
+        <div className="mt-1.5 inline-flex items-center gap-1 rounded-md bg-primary/10 px-1.5 py-0.5 text-[9px] font-medium text-primary"><Tag className="h-2.5 w-2.5" /> {L("Buy 10 get 1", "ซื้อ 10 แถม 1")}</div>
       </div>
     </div>
   );
 }
 
-export function PodMock() {
-  const items = [["Drinking water 600ml", "2 ลัง"], ["UHT milk ×12", "1 ลัง"], ["Instant noodles", "30 ชิ้น"]];
+export function PodMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
+  const items = [[L("Drinking water 600ml", "น้ำดื่ม 600 มล."), L("2 cases", "2 ลัง")], [L("UHT milk ×12", "นมยูเอชที ×12"), L("1 case", "1 ลัง")], [L("Instant noodles", "บะหมี่กึ่งสำเร็จรูป"), L("30 pcs", "30 ชิ้น")]];
   return (
     <div className="w-[268px] rounded-[2.6rem] border border-black/10 bg-zinc-900 p-2.5 shadow-2xl">
       <div className="flex min-h-[470px] flex-col overflow-hidden rounded-[2.1rem] bg-background">
         <div className="bg-primary px-3 pb-2.5 pt-2 text-primary-foreground">
           <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-black/25" />
           <div className="flex items-center gap-1.5 text-[12px] font-semibold">
-            <ChevronLeft className="h-3.5 w-3.5" /> Proof of delivery
+            <ChevronLeft className="h-3.5 w-3.5" /> {L("Proof of delivery", "หลักฐานการส่ง")}
             <span className="ml-auto rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-medium">INV-2087</span>
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-2.5 p-2.5 text-[11px]">
           <div className="flex items-center gap-2 rounded-lg border p-2">
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-500/10 text-green-600"><Check className="h-4 w-4" /></span>
-            <div className="leading-tight"><div className="font-semibold text-foreground">Somchai Minimart</div><div className="text-[9px] text-muted-foreground">Stop 2 of 4 · 10:32</div></div>
-            <span className="ml-auto rounded-full bg-green-500/10 px-2 py-0.5 text-[9px] font-semibold text-green-600">Delivered</span>
+            <div className="leading-tight"><div className="font-semibold text-foreground">{L("Somchai Minimart", "ร้านสมชายมินิมาร์ท")}</div><div className="text-[9px] text-muted-foreground">{L("Stop 2 of 4 · 10:32", "จุดที่ 2 จาก 4 · 10:32")}</div></div>
+            <span className="ml-auto rounded-full bg-green-500/10 px-2 py-0.5 text-[9px] font-semibold text-green-600">{L("Delivered", "ส่งแล้ว")}</span>
           </div>
           <div className="rounded-lg border">
             {items.map((it, i) => (
@@ -486,16 +497,16 @@ export function PodMock() {
             ))}
           </div>
           <div className="rounded-lg border p-2.5">
-            <div className="text-[9px] text-muted-foreground">Customer signature</div>
+            <div className="text-[9px] text-muted-foreground">{L("Customer signature", "ลายเซ็นลูกค้า")}</div>
             <div className="mt-1 flex h-14 items-center justify-center rounded-md bg-muted/40 text-zinc-500">
               <svg viewBox="0 0 130 44" className="h-10 w-[88%]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M6 30 C 14 8, 22 8, 26 26 S 38 44, 46 24 C 52 10, 58 36, 66 26 C 74 16, 78 32, 92 18 C 104 6, 110 30, 124 16" />
               </svg>
             </div>
-            <div className="mt-1.5 flex items-center gap-1 text-[9px] text-muted-foreground"><Check className="h-2.5 w-2.5 text-green-600" /> Signed on device · photo attached</div>
+            <div className="mt-1.5 flex items-center gap-1 text-[9px] text-muted-foreground"><Check className="h-2.5 w-2.5 text-green-600" /> {L("Signed on device · photo attached", "เซ็นบนอุปกรณ์ · แนบรูปแล้ว")}</div>
           </div>
           <div className="flex-1" />
-          <div className="rounded-lg bg-primary py-2.5 text-center text-[12px] font-semibold text-primary-foreground">Confirm delivery</div>
+          <div className="rounded-lg bg-primary py-2.5 text-center text-[12px] font-semibold text-primary-foreground">{L("Confirm delivery", "ยืนยันการส่ง")}</div>
         </div>
         <div className="pb-2 pt-0.5"><div className="mx-auto h-1 w-16 rounded-full bg-foreground/20" /></div>
       </div>
