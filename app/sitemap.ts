@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/terms",
     "/cookie-policy",
+    "/account-deletion",
   ];
   const th = (p: string) => (p === "/" ? "/th" : `/th${p}`);
   return paths.map((p) => ({
