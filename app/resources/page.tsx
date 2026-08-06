@@ -37,10 +37,17 @@ const T = {
   },
 } as const;
 
+/** Pinned to the top of the list regardless of date. */
+const PINNED_SLUG = "the-art-of-distribution";
+
 export default function ResourcesPage() {
   const lang = resolveLang();
   const t = T[lang];
-  const articles = listArticles(lang);
+  const all = listArticles(lang);
+  const articles = [
+    ...all.filter((a) => a.slug === PINNED_SLUG),
+    ...all.filter((a) => a.slug !== PINNED_SLUG),
+  ];
 
   return (
     <div className="bg-background text-foreground antialiased">
