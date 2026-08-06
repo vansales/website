@@ -173,8 +173,8 @@ const STR = {
   },
 } as const;
 
-export default function TermsPage() {
-  const lang = resolveLang();
+export default async function TermsPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

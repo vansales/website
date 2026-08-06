@@ -8,16 +8,19 @@ export const LANG_COOKIE = "vansales-lang";
  * (no client-side flash): saved cookie first, otherwise the browser's
  * Accept-Language preference order (Thai → th, English → en), else English.
  */
-export function resolveLang(): Lang {
+export async function resolveLang(): Promise<Lang> {
+  // headers()/cookies() are async as of Next 15.
+  const h = await headers();
+
   // Set by middleware from the URL locale prefix (/th, /en, or none → en).
-  const fromPath = headers().get("x-lang");
+  const fromPath = h.get("x-lang");
   if (fromPath === "en" || fromPath === "th") return fromPath;
 
   // Fallbacks for any route the middleware doesn't cover.
-  const cookie = cookies().get(LANG_COOKIE)?.value;
+  const cookie = (await cookies()).get(LANG_COOKIE)?.value;
   if (cookie === "en" || cookie === "th") return cookie;
 
-  const accept = headers().get("accept-language") ?? "";
+  const accept = h.get("accept-language") ?? "";
   for (const part of accept.split(",")) {
     const code = part.trim().toLowerCase();
     if (code.startsWith("th")) return "th";
@@ -27,11 +30,11 @@ export function resolveLang(): Lang {
 }
 
 /** The locale-stripped request path (e.g. "/resources/x"), from middleware. */
-export function currentPath(): string {
-  return headers().get("x-path") || "/";
+export async function currentPath(): Promise<string> {
+  return (await headers()).get("x-path") || "/";
 }
 
 /** The URL locale prefix actually requested: "", "/en", or "/th". */
-export function localePrefix(): string {
-  return headers().get("x-prefix") || "";
+export async function localePrefix(): Promise<string> {
+  return (await headers()).get("x-prefix") || "";
 }

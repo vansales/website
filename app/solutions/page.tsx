@@ -130,8 +130,8 @@ const STR = {
   },
 } as const;
 
-export default function SolutionsPage() {
-  const lang = resolveLang();
+export default async function SolutionsPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

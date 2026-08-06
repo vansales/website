@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 
 // External links open in a new tab; internal (relative) links stay in place.
 const components: Components = {
-  a({ href, children, ...props }) {
+  a({ node, href, children, ...props }) {
     const external = !!href && /^https?:\/\//.test(href);
     return (
       <a

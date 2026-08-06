@@ -173,8 +173,8 @@ function MiniTree({ root, kids }: { root: string; kids: readonly string[] }) {
   );
 }
 
-export default function MultiBranchPage() {
-  const lang = resolveLang();
+export default async function MultiBranchPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

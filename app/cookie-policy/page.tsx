@@ -43,8 +43,8 @@ const STR = {
   },
 } as const;
 
-export default function CookiePolicyPage() {
-  const lang = resolveLang();
+export default async function CookiePolicyPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

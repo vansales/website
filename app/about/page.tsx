@@ -8,6 +8,6 @@ export const metadata: Metadata = {
     "The story behind Vansales — turning distribution from an art that relies on experience into a system you can measure, control and scale.",
 };
 
-export default function Page() {
-  return <CompanyPage initialLang={resolveLang()} />;
+export default async function Page() {
+  return <CompanyPage initialLang={await resolveLang()} />;
 }

@@ -83,8 +83,8 @@ const STR = {
   },
 } as const;
 
-export default function FeaturesPage() {
-  const lang = resolveLang();
+export default async function FeaturesPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

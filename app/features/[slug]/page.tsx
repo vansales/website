@@ -424,23 +424,25 @@ export function generateStaticParams() {
   return Object.keys(DETAILS).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const entry = DETAILS[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const entry = DETAILS[slug];
   if (!entry) return {};
-  const t = entry[resolveLang()];
+  const t = entry[await resolveLang()];
   return { title: t.title, description: t.sub };
 }
 
-export default function FeatureDetailPage({ params }: { params: { slug: string } }) {
-  const entry = DETAILS[params.slug];
+export default async function FeatureDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const entry = DETAILS[slug];
   if (!entry) notFound();
 
-  const lang = resolveLang();
+  const lang = await resolveLang();
   const t = entry[lang];
   const ui = UI[lang];
   const Mock = FEATURE_MOCKS[entry.mock] as (p: { lang?: "en" | "th" }) => JSX.Element;
   const Mock2 = entry.mock2 ? (FEATURE_MOCKS[entry.mock2] as (p: { lang?: "en" | "th" }) => JSX.Element) : null;
-  const others = Object.keys(DETAILS).filter((s) => s !== params.slug);
+  const others = Object.keys(DETAILS).filter((s) => s !== slug);
 
   return (
     <div className="bg-background text-foreground antialiased">

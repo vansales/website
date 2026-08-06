@@ -21,11 +21,12 @@ const T = {
   },
 } as const;
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const article = getArticle(params.slug, resolveLang());
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getArticle(slug, await resolveLang());
   if (!article) return {};
-  const enUrl = `/resources/${params.slug}`;
-  const thUrl = `/th/resources/${params.slug}`;
+  const enUrl = `/resources/${slug}`;
+  const thUrl = `/th/resources/${slug}`;
   // Canonical follows the language actually rendered (a Thai URL that fell back
   // to English content points back to the English canonical).
   const canonical = article.lang === "th" ? thUrl : enUrl;
@@ -52,10 +53,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const lang = resolveLang();
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const lang = await resolveLang();
   const t = T[lang];
-  const article = getArticle(params.slug, lang);
+  const article = getArticle(slug, lang);
   if (!article) notFound();
 
   return (
@@ -91,7 +93,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
         {article.author && <AuthorByline persona={article.author} locale={article.lang} />}
 
-        <ArticleActions slug={params.slug} title={article.title} lang={lang} />
+        <ArticleActions slug={slug} title={article.title} lang={lang} />
       </article>
 
       <SiteFooter lang={lang} />

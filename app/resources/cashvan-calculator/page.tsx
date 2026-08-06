@@ -52,8 +52,8 @@ const T = {
   },
 } as const;
 
-export default function CashvanCalculatorPage() {
-  const lang = resolveLang();
+export default async function CashvanCalculatorPage() {
+  const lang = await resolveLang();
   const t = T[lang];
 
   return (

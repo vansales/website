@@ -155,8 +155,8 @@ const STR = {
   },
 } as const;
 
-export default function AccountDeletionPage() {
-  const lang = resolveLang();
+export default async function AccountDeletionPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

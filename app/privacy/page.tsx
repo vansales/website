@@ -221,8 +221,8 @@ const STR = {
   },
 } as const;
 
-export default function PrivacyPolicyPage() {
-  const lang = resolveLang();
+export default async function PrivacyPolicyPage() {
+  const lang = await resolveLang();
   const t = STR[lang];
 
   return (

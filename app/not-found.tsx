@@ -34,8 +34,8 @@ const T = {
   },
 } as const;
 
-export default function NotFound() {
-  const lang = resolveLang();
+export default async function NotFound() {
+  const lang = await resolveLang();
   const t = T[lang];
 
   return (

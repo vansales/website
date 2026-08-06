@@ -40,8 +40,8 @@ const T = {
 /** Pinned to the top of the list regardless of date. */
 const PINNED_SLUG = "the-art-of-distribution";
 
-export default function ResourcesPage() {
-  const lang = resolveLang();
+export default async function ResourcesPage() {
+  const lang = await resolveLang();
   const t = T[lang];
   const all = listArticles(lang);
   const articles = [

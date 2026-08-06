@@ -11,9 +11,9 @@ import { Analytics } from "@vercel/analytics/next";
 /** Site-wide metadata. `alternates` (canonical + hreflang) is computed per
  * request from the active locale + path, so every page that doesn't set its
  * own alternates is covered. English is canonical at the root; Thai at /th. */
-export function generateMetadata(): Metadata {
-  const lang = resolveLang();
-  const path = currentPath();
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await resolveLang();
+  const path = await currentPath();
   const canonical = lang === "th" ? localized(path, "th") : path;
   return {
     metadataBase: new URL("https://vansales.ai"),
@@ -49,8 +49,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  const lang = resolveLang();
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const lang = await resolveLang();
   return (
     <html lang={lang}>
       <body>
