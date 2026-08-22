@@ -70,7 +70,7 @@ const STR = {
       },
       {
         h: "Intellectual property",
-        p: "The Vansales platform, software, website and content are owned by Vansales Application Co., Ltd. or its licensors. You may not copy, distribute or modify them without our written permission. You keep ownership of your own data and content.",
+        p: "The Vansales platform, software, website and content are owned by Vansales or its licensors. You may not copy, distribute or modify them without our written permission. You keep ownership of your own data and content.",
       },
       {
         h: "Service availability and changes",
@@ -149,7 +149,7 @@ const STR = {
       },
       {
         h: "ทรัพย์สินทางปัญญา",
-        p: "แพลตฟอร์ม ซอฟต์แวร์ เว็บไซต์ และเนื้อหาของ Vansales เป็นกรรมสิทธิ์ของ บริษัท แวนเซลส์ แอปพลิเคชัน จำกัด หรือผู้ให้สิทธิ คุณไม่สามารถคัดลอก เผยแพร่ หรือดัดแปลงสิ่งเหล่านี้ได้โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร ทั้งนี้ คุณยังคงเป็นเจ้าของข้อมูลและเนื้อหาของคุณเอง",
+        p: "แพลตฟอร์ม ซอฟต์แวร์ เว็บไซต์ และเนื้อหาของ Vansales เป็นกรรมสิทธิ์ของ Vansales หรือผู้ให้สิทธิ คุณไม่สามารถคัดลอก เผยแพร่ หรือดัดแปลงสิ่งเหล่านี้ได้โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร ทั้งนี้ คุณยังคงเป็นเจ้าของข้อมูลและเนื้อหาของคุณเอง",
       },
       {
         h: "ความพร้อมให้บริการและการเปลี่ยนแปลง",

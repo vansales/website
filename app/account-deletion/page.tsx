@@ -18,7 +18,7 @@ const STR = {
     title: "Account & Data Deletion",
     updated: "Last updated: 31 July 2026",
     intro:
-      "Vansales is a business service operated by Vansales Application Co., Ltd. (“Vansales”, “we”). A company subscribes to Vansales and creates user logins for its own team (for example, its salespeople and delivery staff). The company owns the account and all the business data in it — sales documents, customer lists, customer companies, orders, stock and routes — and is the controller of that data. Team members are users the company provisions; they use the app but do not own the account or its business data. Because of this, deletion works differently for a team member than for the company. This page explains both. Please read it together with our Privacy Policy.",
+      "Vansales is a business service (“Vansales”, “we”). A company subscribes to Vansales and creates user logins for its own team (for example, its salespeople and delivery staff). The company owns the account and all the business data in it — sales documents, customer lists, customer companies, orders, stock and routes — and is the controller of that data. Team members are users the company provisions; they use the app but do not own the account or its business data. Because of this, deletion works differently for a team member than for the company. This page explains both. Please read it together with our Privacy Policy.",
     sections: [
       {
         h: "Who can delete what",
@@ -88,7 +88,7 @@ const STR = {
     title: "การลบบัญชีและข้อมูล",
     updated: "ปรับปรุงล่าสุด: 31 กรกฎาคม 2026",
     intro:
-      "Vansales เป็นบริการสำหรับธุรกิจ ดำเนินการโดย บริษัท แวนเซลส์ แอปพลิเคชัน จำกัด (“Vansales” หรือ “เรา”) โดยบริษัทลูกค้าจะสมัครใช้บริการ Vansales แล้วสร้างบัญชีผู้ใช้ให้ทีมงานของตนเอง (เช่น พนักงานขาย, พนักงานจัดส่ง) บริษัทเป็นเจ้าของบัญชีและข้อมูลธุรกิจทั้งหมดในบัญชีนั้น — เอกสารการขาย รายชื่อลูกค้า บริษัทลูกค้า ออเดอร์ สต็อก และเส้นทาง — และเป็นผู้ควบคุมข้อมูลดังกล่าว ส่วนทีมงานคือผู้ใช้ที่บริษัทสร้างให้ ใช้งานแอปได้แต่ไม่ได้เป็นเจ้าของบัญชีหรือข้อมูลธุรกิจ ด้วยเหตุนี้ การลบข้อมูลของทีมงานจึงต่างจากการลบของบริษัท หน้านี้อธิบายทั้งสองกรณี โปรดอ่านควบคู่กับนโยบายความเป็นส่วนตัวของเรา",
+      "Vansales เป็นบริการสำหรับธุรกิจ (“Vansales” หรือ “เรา”) โดยบริษัทลูกค้าจะสมัครใช้บริการ Vansales แล้วสร้างบัญชีผู้ใช้ให้ทีมงานของตนเอง (เช่น พนักงานขาย, พนักงานจัดส่ง) บริษัทเป็นเจ้าของบัญชีและข้อมูลธุรกิจทั้งหมดในบัญชีนั้น — เอกสารการขาย รายชื่อลูกค้า บริษัทลูกค้า ออเดอร์ สต็อก และเส้นทาง — และเป็นผู้ควบคุมข้อมูลดังกล่าว ส่วนทีมงานคือผู้ใช้ที่บริษัทสร้างให้ ใช้งานแอปได้แต่ไม่ได้เป็นเจ้าของบัญชีหรือข้อมูลธุรกิจ ด้วยเหตุนี้ การลบข้อมูลของทีมงานจึงต่างจากการลบของบริษัท หน้านี้อธิบายทั้งสองกรณี โปรดอ่านควบคู่กับนโยบายความเป็นส่วนตัวของเรา",
     sections: [
       {
         h: "ใครลบอะไรได้บ้าง",

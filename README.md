@@ -64,4 +64,4 @@ posts to Web3Forms — set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local`.
 
 </details>
 
-<div align="center"><sub>© Vansales · Vansales Application Co., Ltd.</sub></div>
+<div align="center"><sub>© Vansales</sub></div>
