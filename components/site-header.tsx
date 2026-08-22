@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Logo, Button } from "@vansales/design-system";
+import { Button } from "@vansales/design-system";
 import { type Lang } from "@/lib/use-lang";
 import { localized } from "@/lib/i18n";
 import { MobileNav } from "@/components/mobile-nav";
@@ -37,7 +37,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
       <header className="sticky top-0 z-40 border-b border-white/15 bg-[#1763ad]/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           <Link href={localized("/", lang)} aria-label="Vansales home" className="shrink-0">
-            <Logo height={30} icon="square" color="#ffffff" />
+            <img src="/brand/vansales-wordmark-white.svg" alt="Vansales" className="h-10 w-auto" />
           </Link>
           <DesktopNav items={navItems(lang)} />
           <div className="flex items-center gap-3">

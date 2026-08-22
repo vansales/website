@@ -11,5 +11,6 @@ next-env.d.ts
 .env
 .env*.local
 
-# internal planning notes — local only, not published
+# internal planning notes — local only, not published (repo is PUBLIC for Vercel)
 /docs/
+CLAUDE.md

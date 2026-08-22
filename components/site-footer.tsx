@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo, Footer } from "@vansales/design-system";
+import { Footer } from "@vansales/design-system";
 import { Facebook, Linkedin, MessageCircle } from "lucide-react";
 import { type Lang } from "@/lib/use-lang";
 import { localized } from "@/lib/i18n";
@@ -16,7 +16,7 @@ const FOOTER = {
     desc: "All-in-one sales & distribution management, built for teams across Thailand and Southeast Asia.",
     cols: [
       { title: "Product", links: [{ label: "Features", href: "/features" }, { label: "Industries", href: "/solutions" }, { label: "Benefits", href: "/#benefits" }] },
-      { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Resources", href: "/resources" }, { label: "Contact", href: "/#contact" }] },
+      { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Resources", href: "/resources" }, { label: "Brand", href: "/brand" }, { label: "Contact", href: "/#contact" }] },
       { title: "Legal", links: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Use", href: "/terms" }, { label: "Cookie Policy", href: "/cookie-policy" }, { label: "Account Deletion", href: "/account-deletion" }] },
     ],
     bottom: "© 2026 Vansales. All rights reserved.",
@@ -25,7 +25,7 @@ const FOOTER = {
     desc: "ระบบจัดการงานขายและกระจายสินค้าครบวงจร สำหรับทีมทั่วไทยและเอเชียตะวันออกเฉียงใต้",
     cols: [
       { title: "ผลิตภัณฑ์", links: [{ label: "ฟีเจอร์", href: "/features" }, { label: "อุตสาหกรรม", href: "/solutions" }, { label: "ประโยชน์", href: "/#benefits" }] },
-      { title: "บริษัท", links: [{ label: "เกี่ยวกับเรา", href: "/about" }, { label: "แหล่งข้อมูล", href: "/resources" }, { label: "ติดต่อ", href: "/#contact" }] },
+      { title: "บริษัท", links: [{ label: "เกี่ยวกับเรา", href: "/about" }, { label: "แหล่งข้อมูล", href: "/resources" }, { label: "แบรนด์", href: "/brand" }, { label: "ติดต่อ", href: "/#contact" }] },
       { title: "กฎหมาย", links: [{ label: "นโยบายความเป็นส่วนตัว", href: "/privacy" }, { label: "ข้อกำหนดการใช้งาน", href: "/terms" }, { label: "นโยบายคุกกี้", href: "/cookie-policy" }, { label: "การลบบัญชี", href: "/account-deletion" }] },
     ],
     bottom: "© 2026 Vansales สงวนลิขสิทธิ์",
@@ -36,7 +36,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
   const t = FOOTER[lang];
   return (
     <Footer
-      brand={<Logo height={26} icon="square" />}
+      brand={<img src="/brand/vansales-wordmark.svg" alt="Vansales" className="h-[26px] w-auto" />}
       description={t.desc}
       social={SOCIAL}
       columns={t.cols.map((c) => ({ title: c.title, links: c.links.map((l) => ({ label: l.label, href: localized(l.href, lang) })) }))}
