@@ -187,6 +187,8 @@ const STR = {
       "Honest advice on the right fit — no pressure",
     ],
     contactPhone: "Call us at (+66) 0 8925 2945 (Mon–Sat 9:00–18:00)",
+    contactLine: "Or add us on LINE — scan to chat",
+    contactLineAlt: "Vansales LINE official account QR code",
     fName: "Full name",
     fNameP: "Your name",
     fCompany: "Company",
@@ -366,6 +368,8 @@ const STR = {
       "แนะนำตรงไปตรงมาว่าอะไรเหมาะ ไม่กดดัน",
     ],
     contactPhone: "โทรเลย (+66) 0 8925 2945 (จ.–ส. 9:00–18:00)",
+    contactLine: "หรือแอดไลน์เรา — สแกนเพื่อแชท",
+    contactLineAlt: "QR code บัญชี LINE ทางการของ Vansales",
     fName: "ชื่อ–นามสกุล",
     fNameP: "กรอกชื่อของคุณ",
     fCompany: "บริษัท",
@@ -867,6 +871,12 @@ function LandingPage({ initialLang }: { initialLang: Lang }) {
                 ))}
               </ul>
               <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground"><Phone className="h-4 w-4 text-primary" /> {t.contactPhone}</div>
+              <div className="mt-6 flex items-center gap-4">
+                <div className="shrink-0 rounded-xl border bg-white p-2 shadow-sm">
+                  <Image src="/marketing/line-qr.png" alt={t.contactLineAlt} width={112} height={112} className="h-28 w-28" />
+                </div>
+                <p className="text-sm text-muted-foreground">{t.contactLine}</p>
+              </div>
             </div>
             <ContactForm
               lang={lang}

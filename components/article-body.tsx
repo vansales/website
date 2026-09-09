@@ -17,6 +17,19 @@ const components: Components = {
       </a>
     );
   },
+  // Inline images render at a uniform height regardless of source resolution,
+  // centred in a light card — so a set of product shots looks consistent.
+  img({ node, src, alt, ...props }) {
+    return (
+      <img
+        src={typeof src === "string" ? src : undefined}
+        alt={alt ?? ""}
+        loading="lazy"
+        className="mx-auto h-72 w-auto object-contain"
+        {...props}
+      />
+    );
+  },
 };
 
 export function ArticleBody({ content }: { content: string }) {
