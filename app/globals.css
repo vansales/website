@@ -1,5 +1,5 @@
-/* Vansales web — shares the design-system theme (primary #1765B3, zinc, IBM Plex Sans Thai). */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Anuphan:wght@400;500;600;700&family=Righteous&display=swap");
+/* Vansales web — shares the design-system theme (primary #1765B3, zinc, IBM Plex Sans Thai).
+   Fonts are self-hosted via next/font (see app/layout.tsx) — no Google Fonts @import. */
 
 @tailwind base;
 @tailwind components;
@@ -81,7 +81,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: "IBM Plex Sans Thai", system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 }

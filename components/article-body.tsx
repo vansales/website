@@ -1,5 +1,5 @@
-"use client";
-
+// Server component — the markdown is static, so it renders on the server and
+// react-markdown/remark-gfm stay out of the client bundle (no hydration cost).
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
