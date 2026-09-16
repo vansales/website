@@ -15,8 +15,8 @@ const config: Config = {
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
     extend: {
       fontFamily: {
-        sans: ['"IBM Plex Sans Thai"', "system-ui", "-apple-system", "sans-serif"],
-        display: ['"Anuphan"', '"IBM Plex Sans Thai"', "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
