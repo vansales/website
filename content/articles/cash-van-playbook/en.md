@@ -4,6 +4,7 @@ excerpt: "A cash van can be a profit engine or a slow leak — and the differenc
 date: 2026-06-22
 author: field-team
 tag: Playbook
+app: featured
 cover: /marketing/field-sales.jpg
 coverAlt: A field sales rep serving a shop from a cash van route
 ---

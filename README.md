@@ -62,6 +62,15 @@ pnpm dev        # http://localhost:3000
 The design system ships as a vendored package under `vendor/`. The contact form
 posts to Web3Forms — set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local`.
 
+**Articles in the mobile app.** Add `app: featured` or `app: news` to an
+article's frontmatter (in both `en.md` and `th.md`) to show it in the app;
+leave it out to keep the article web-only. The app reads:
+
+- `GET /api/articles?lang=th` → `{ lang, featured: [...], news: [...] }`, newest first
+- `GET /api/articles/<slug>?lang=th` → the same card fields plus `content` (Markdown, absolute URLs); 404 if not in the app
+
+Each card carries `url`, the article's web page, for an "open on web" link.
+
 </details>
 
 <div align="center"><sub>© Vansales</sub></div>

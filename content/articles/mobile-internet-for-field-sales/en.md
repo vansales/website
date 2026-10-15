@@ -4,6 +4,7 @@ excerpt: "When the signal drops, orders don't go out. This guide helps you estim
 date: 2026-10-08
 author: field-team
 tag: Guide
+app: news
 cover: /marketing/mobile-internet-for-field-sales-cover.jpg
 coverAlt: A sales rep checks an order on a tablet while handing a box of goods to a smiling shop owner, with an open delivery van behind
 ---

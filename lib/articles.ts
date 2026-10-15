@@ -8,6 +8,9 @@ const LANGS: Lang[] = ["en", "th"];
 
 export type AuthorPersona = "founder" | "team" | "field-team";
 
+/** Where an article shows in the mobile app; absent = not shown in the app. */
+export type AppPlacement = "featured" | "news";
+
 export interface ArticleMeta {
   slug: string;
   /** Languages this article is actually written in. */
@@ -20,6 +23,8 @@ export interface ArticleMeta {
   coverAlt?: string;
   /** Byline persona shown at the foot of the article. */
   author?: AuthorPersona;
+  /** Mobile-app placement, from the `app:` frontmatter field. */
+  app?: AppPlacement;
 }
 
 export interface Article extends ArticleMeta {
@@ -57,6 +62,9 @@ function load(slug: string, lang: Lang) {
     author: (["founder", "team", "field-team"] as const).includes(parsed.data.author)
       ? (parsed.data.author as AuthorPersona)
       : undefined,
+    app: (["featured", "news"] as const).includes(parsed.data.app)
+      ? (parsed.data.app as AppPlacement)
+      : undefined,
     content: parsed.content,
   };
 }
@@ -85,7 +93,7 @@ export function listArticles(lang: Lang): ArticleMeta[] {
       if (!langs.length) return null;
       const use = langs.includes(lang) ? lang : langs[0];
       const a = load(slug, use);
-      return { slug, langs, title: a.title, excerpt: a.excerpt, date: a.date, tag: a.tag, cover: a.cover, coverAlt: a.coverAlt, author: a.author };
+      return { slug, langs, title: a.title, excerpt: a.excerpt, date: a.date, tag: a.tag, cover: a.cover, coverAlt: a.coverAlt, author: a.author, app: a.app };
     })
     .filter((x): x is ArticleMeta => x !== null)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -110,6 +118,7 @@ export function getArticle(slug: string, lang: Lang): Article | null {
     cover: a.cover,
     coverAlt: a.coverAlt,
     author: a.author,
+    app: a.app,
     content: a.content,
   };
 }
