@@ -4,6 +4,7 @@ excerpt: หน่วยรถขายเป็นได้ทั้งเค�
 date: 2026-06-22
 author: field-team
 tag: คู่มือ
+app: featured
 cover: /marketing/field-sales.jpg
 coverAlt: เซลส์ภาคสนามกำลังดูแลร้านค้าจากหน่วยรถขาย
 ---

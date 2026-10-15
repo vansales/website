@@ -4,6 +4,7 @@ excerpt: "บิลที่พิมพ์ส่งถึงมือลูก�
 date: 2026-09-10
 author: field-team
 tag: ฮาร์ดแวร์
+app: news
 cover: /marketing/bluetooth-receipt-printers-cover.jpg
 coverAlt: เครื่องพิมพ์บิลความร้อนแบบ Bluetooth พกพา กำลังพิมพ์บิล Vansales หน้างาน
 ---

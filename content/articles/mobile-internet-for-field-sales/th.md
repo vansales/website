@@ -4,6 +4,7 @@ excerpt: "ถ้าสัญญาณหลุด ออเดอร์ก็ส
 date: 2026-10-08
 author: field-team
 tag: คู่มือ
+app: news
 cover: /marketing/mobile-internet-for-field-sales-cover.jpg
 coverAlt: พนักงานขายถือแท็บเล็ตเช็กออเดอร์ ขณะส่งกล่องสินค้าให้เจ้าของร้านโชห่วย โดยมีรถขายเปิดท้ายอยู่ด้านหลัง
 ---

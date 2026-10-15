@@ -4,6 +4,7 @@ excerpt: "A printed bill in the customer's hand closes the sale and settles the 
 date: 2026-09-10
 author: field-team
 tag: Hardware
+app: news
 cover: /marketing/bluetooth-receipt-printers-cover.jpg
 coverAlt: A mobile Bluetooth thermal receipt printer printing a Vansales bill in the field
 ---
