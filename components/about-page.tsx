@@ -235,12 +235,12 @@ function CompanyPage({ initialLang }: { initialLang: Lang }) {
           <DesktopNav items={navItems(lang)} />
           <div className="flex items-center gap-3">
             <LangSwitch lang={lang} onDark />
-            <a href={`https://manager.vansales.asia/auth/login?lang=${lang}`} target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium text-white/70 hover:text-white md:block">{t.signIn}</a>
+            <a href="https://app.vansales.ai" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium text-white/70 hover:text-white md:block">{t.signIn}</a>
             <a href={localized("/#contact", lang)} className="hidden sm:block"><Button className="bg-white text-primary hover:bg-white/90">{t.contactSales}</Button></a>
             <MobileNav
               items={navItems(lang)}
               signIn={t.signIn}
-              signInHref={`https://manager.vansales.asia/auth/login?lang=${lang}`}
+              signInHref="https://app.vansales.ai"
               contactSales={t.contactSales}
               contactHref={localized("/#contact", lang)}
             />

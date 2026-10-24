@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/resources/cashvan-calculator",
     ...allSlugs().map((s) => `/resources/${s}`),
+    "/support",
     "/privacy",
     "/terms",
     "/cookie-policy",

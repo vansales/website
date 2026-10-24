@@ -38,7 +38,7 @@ export function ReportsMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
         <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-        <span className="ml-2 rounded bg-background px-2 py-0.5 text-[10px] text-muted-foreground">app.vansales.asia/dashboard</span>
+        <span className="ml-2 rounded bg-background px-2 py-0.5 text-[10px] text-muted-foreground">app.vansales.ai/dashboard</span>
       </div>
       <div className="p-3 text-[11px]">
         <div className="mb-3 flex items-center justify-between">
@@ -239,7 +239,7 @@ export function OrderMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
     [L("Instant noodles ×30", "บะหมี่กึ่งสำเร็จรูป ×30"), "฿180"],
   ];
   return (
-    <Frame url="app.vansales.asia/orders/SO-1042">
+    <Frame url="app.vansales.ai/orders/SO-1042">
       <div className="p-3 text-[11px]">
         <div className="mb-3 flex items-center justify-between">
           <span className="font-semibold">{L("Order SO-1042", "ออเดอร์ SO-1042")}</span>
