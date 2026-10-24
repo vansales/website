@@ -16,7 +16,7 @@ const FOOTER = {
     desc: "All-in-one sales & distribution management, built for teams across Thailand and Southeast Asia.",
     cols: [
       { title: "Product", links: [{ label: "Features", href: "/features" }, { label: "Industries", href: "/solutions" }, { label: "Benefits", href: "/#benefits" }] },
-      { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Resources", href: "/resources" }, { label: "Brand", href: "/brand" }, { label: "Contact", href: "/#contact" }] },
+      { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Resources", href: "/resources" }, { label: "Brand", href: "/brand" }, { label: "Support", href: "/support" }, { label: "Contact", href: "/#contact" }] },
       { title: "Legal", links: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Use", href: "/terms" }, { label: "Cookie Policy", href: "/cookie-policy" }, { label: "Account Deletion", href: "/account-deletion" }] },
     ],
     bottom: "© 2026 Vansales. All rights reserved.",
@@ -25,7 +25,7 @@ const FOOTER = {
     desc: "ระบบจัดการงานขายและกระจายสินค้าครบวงจร สำหรับทีมทั่วไทยและเอเชียตะวันออกเฉียงใต้",
     cols: [
       { title: "ผลิตภัณฑ์", links: [{ label: "ฟีเจอร์", href: "/features" }, { label: "อุตสาหกรรม", href: "/solutions" }, { label: "ประโยชน์", href: "/#benefits" }] },
-      { title: "บริษัท", links: [{ label: "เกี่ยวกับเรา", href: "/about" }, { label: "แหล่งข้อมูล", href: "/resources" }, { label: "แบรนด์", href: "/brand" }, { label: "ติดต่อ", href: "/#contact" }] },
+      { title: "บริษัท", links: [{ label: "เกี่ยวกับเรา", href: "/about" }, { label: "แหล่งข้อมูล", href: "/resources" }, { label: "แบรนด์", href: "/brand" }, { label: "ช่วยเหลือ", href: "/support" }, { label: "ติดต่อ", href: "/#contact" }] },
       { title: "กฎหมาย", links: [{ label: "นโยบายความเป็นส่วนตัว", href: "/privacy" }, { label: "ข้อกำหนดการใช้งาน", href: "/terms" }, { label: "นโยบายคุกกี้", href: "/cookie-policy" }, { label: "การลบบัญชี", href: "/account-deletion" }] },
     ],
     bottom: "© 2026 Vansales สงวนลิขสิทธิ์",

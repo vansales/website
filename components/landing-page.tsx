@@ -432,7 +432,7 @@ function BrowserFrame({ children }: { children: React.ReactNode }) {
         <span className="h-2.5 w-2.5 rounded-full bg-warning/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
         <div className="ml-3 flex h-5 flex-1 items-center rounded-md bg-background px-2 text-[10px] text-muted-foreground">
-          app.vansales.asia/dashboard
+          app.vansales.ai/dashboard
         </div>
       </div>
       {children}
@@ -691,14 +691,14 @@ function LandingPage({ initialLang }: { initialLang: Lang }) {
           <DesktopNav items={navItems(lang)} />
           <div className="flex items-center gap-3">
             <LangSwitch lang={lang} onDark />
-            <a href={`https://manager.vansales.asia/auth/login?lang=${lang}`} target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium text-white/70 hover:text-white md:block">
+            <a href="https://app.vansales.ai" target="_blank" rel="noopener noreferrer" className="hidden text-sm font-medium text-white/70 hover:text-white md:block">
               {t.signIn}
             </a>
             <a href={localized("/#contact", lang)} className="hidden sm:block"><Button className="bg-white text-primary hover:bg-white/90">{t.contactSales}</Button></a>
             <MobileNav
               items={navItems(lang)}
               signIn={t.signIn}
-              signInHref={`https://manager.vansales.asia/auth/login?lang=${lang}`}
+              signInHref="https://app.vansales.ai"
               contactSales={t.contactSales}
               contactHref={localized("/#contact", lang)}
             />
