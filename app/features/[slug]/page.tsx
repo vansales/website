@@ -413,6 +413,75 @@ const DETAILS: Record<string, { mock: MockKind; mock2?: MockKind; en: Copy; th: 
       ],
     },
   },
+  global: {
+    mock: "global",
+    en: {
+      eyebrow: "Global",
+      title: "One system, ready for any country",
+      sub: "Take your sales team abroad without switching systems. Languages, time zones, taxes and addresses follow each country.",
+      intro:
+        "Whether your team sells in Thailand, Vietnam or China, everyone works in the same system. Each person uses the app in their own language, while times, taxes and addresses follow the rules of the country they work in.",
+      introNote: ["Multi-language, chosen by each user", "Time zones that match each area", "Country-level tax and local address levels"],
+      blocks: [
+        {
+          h: "Each user's own language",
+          body: "Reps, drivers and managers pick the language they read best, so the team in each country works without a translator.",
+          points: ["English, Thai, Vietnamese, Lao", "Simplified Chinese, Khmer, Burmese", "Switch language anytime in the app"],
+        },
+        {
+          h: "Times and taxes that match the country",
+          body: "Orders, visits and reports show the right local time, and taxes follow the rules of each country.",
+          points: ["Supports different time zones", "Tax settings at country level", "Documents follow each country's tax"],
+        },
+        {
+          h: "Local addresses, on the map",
+          body: "Customer addresses follow each country's own levels, such as province, district and sub-district, and every shop sits on the map anywhere in the world.",
+          points: ["Address levels for every country", "Shops pinned on a world map", "Report by region in each country"],
+        },
+      ],
+      outcomeTitle: "What gets better",
+      outcomes: ["Expand abroad without a new system", "Local teams work in their own language", "One view of every country from head office"],
+      faq: [
+        { q: "Which languages are supported?", a: "Vansales is multi-language. Today it includes English, Thai, Vietnamese, Lao, Simplified Chinese, Khmer and Burmese, and more languages will be added. Each user chooses their own language in the app." },
+        { q: "Can teams in different time zones use the same system?", a: "Yes. The system supports different time zones, so orders, visits and reports show the right local time for each area." },
+        { q: "Can taxes be set per country?", a: "Yes. Taxes are set at country level, so documents in each country follow that country's tax." },
+        { q: "Do addresses work outside Thailand?", a: "Yes. Addresses follow each country's levels, such as province, district and sub-district, and shops can be pinned on the map anywhere in the world." },
+      ],
+    },
+    th: {
+      eyebrow: "ต่างประเทศ",
+      title: "ระบบเดียว พร้อมใช้งานทุกประเทศ",
+      sub: "ขยายทีมขายไปต่างประเทศได้โดยไม่ต้องเปลี่ยนระบบ ภาษา โซนเวลา ภาษี และที่อยู่ เป็นไปตามแต่ละประเทศ",
+      intro:
+        "ไม่ว่าทีมจะขายอยู่ในไทย เวียดนาม หรือจีน ทุกคนทำงานบนระบบเดียวกัน แต่ละคนใช้แอปเป็นภาษาของตัวเอง ส่วนเวลา ภาษี และที่อยู่ เป็นไปตามกฎของประเทศที่ทำงานอยู่",
+      introNote: ["หลายภาษา (Multi-language) ผู้ใช้แต่ละคนเลือกเองได้", "โซนเวลาตรงกับแต่ละพื้นที่", "ภาษีระดับประเทศ และที่อยู่ตามแบบของแต่ละประเทศ"],
+      blocks: [
+        {
+          h: "ภาษาของแต่ละคน",
+          body: "เซลส์ คนขับ และผู้จัดการ เลือกภาษาที่อ่านถนัดได้เอง ทีมในแต่ละประเทศจึงทำงานได้โดยไม่ต้องมีล่าม",
+          points: ["อังกฤษ ไทย เวียดนาม ลาว", "จีน (ตัวย่อ) เขมร เมียนมา", "เปลี่ยนภาษาในแอปได้ทุกเมื่อ"],
+        },
+        {
+          h: "เวลาและภาษีตรงตามประเทศ",
+          body: "ออเดอร์ การเยี่ยมร้าน และรายงาน แสดงเวลาท้องถิ่นที่ถูกต้อง และภาษีเป็นไปตามกฎของแต่ละประเทศ",
+          points: ["รองรับโซนเวลาที่ต่างกัน", "ตั้งค่าภาษีระดับประเทศ", "เอกสารคิดภาษีตามประเทศนั้น"],
+        },
+        {
+          h: "ที่อยู่ตามแบบท้องถิ่น บนแผนที่",
+          body: "ที่อยู่ลูกค้าเป็นไปตามระดับการปกครองของแต่ละประเทศ เช่น จังหวัด อำเภอ ตำบล และปักหมุดร้านบนแผนที่ได้ทั่วโลก",
+          points: ["ระดับที่อยู่ของทุกประเทศ", "ปักหมุดร้านบนแผนที่โลก", "ดูรายงานแยกตามพื้นที่ในแต่ละประเทศ"],
+        },
+      ],
+      outcomeTitle: "ผลลัพธ์ที่ดีขึ้น",
+      outcomes: ["ขยายไปต่างประเทศโดยไม่ต้องหาระบบใหม่", "ทีมท้องถิ่นทำงานด้วยภาษาของตัวเอง", "สำนักงานใหญ่เห็นภาพรวมทุกประเทศ"],
+      faq: [
+        { q: "รองรับภาษาอะไรบ้าง?", a: "Vansales รองรับหลายภาษา ตอนนี้มีอังกฤษ ไทย เวียดนาม ลาว จีน (ตัวย่อ) เขมร และเมียนมา และจะเพิ่มภาษาอื่นต่อไป ผู้ใช้แต่ละคนเลือกภาษาของตัวเองในแอปได้" },
+        { q: "ทีมที่อยู่คนละโซนเวลาใช้ระบบเดียวกันได้ไหม?", a: "ได้ ระบบรองรับโซนเวลาที่ต่างกัน ออเดอร์ การเยี่ยมร้าน และรายงาน จึงแสดงเวลาท้องถิ่นที่ถูกต้องของแต่ละพื้นที่" },
+        { q: "ตั้งค่าภาษีแยกตามประเทศได้ไหม?", a: "ได้ ภาษีตั้งค่าได้ในระดับประเทศ เอกสารของแต่ละประเทศจึงคิดภาษีตามกฎของประเทศนั้น" },
+        { q: "ที่อยู่นอกประเทศไทยใช้ได้ไหม?", a: "ได้ ที่อยู่เป็นไปตามระดับการปกครองของแต่ละประเทศ เช่น จังหวัด อำเภอ ตำบล และปักหมุดร้านบนแผนที่ได้ทั่วโลก" },
+      ],
+    },
+  },
 };
 
 const UI = {

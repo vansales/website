@@ -12,6 +12,11 @@ import {
   Truck,
   Plug,
   Tag,
+  Globe,
+  Languages,
+  Clock,
+  Receipt,
+  MapPin,
 } from "lucide-react";
 
 function Frame({ url, children }: { url: string; children: ReactNode }) {
@@ -514,6 +519,50 @@ export function PodMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
   );
 }
 
+/** Global — per-country settings: language, time zone, tax and address levels. */
+export function GlobalMock({ lang = "en" }: { lang?: "en" | "th" } = {}) {
+  const L = (en: string, th: string) => (lang === "th" ? th : en);
+  const countries = [
+    { n: L("Thailand", "ไทย"), active: false },
+    { n: L("Vietnam", "เวียดนาม"), active: false },
+    { n: L("China", "จีน"), active: true },
+  ];
+  const rows = [
+    { icon: <Languages className="h-3.5 w-3.5" />, k: L("Language", "ภาษา"), v: "中文（简体）" },
+    { icon: <Clock className="h-3.5 w-3.5" />, k: L("Time zone", "โซนเวลา"), v: "UTC+8" },
+    { icon: <Receipt className="h-3.5 w-3.5" />, k: L("Tax", "ภาษี"), v: "VAT 13%" },
+    { icon: <MapPin className="h-3.5 w-3.5" />, k: L("Address levels", "ระดับที่อยู่"), v: "省 › 市 › 区" },
+  ];
+  const languages = ["English", "ไทย", "Tiếng Việt", "ລາວ", "中文", "ខ្មែរ", "မြန်မာ"];
+  return (
+    <div className="w-[300px] rounded-2xl border bg-card p-4 text-[11px] shadow-2xl sm:w-[330px]">
+      <div className="mb-3 flex items-center justify-between">
+        <span className="flex items-center gap-1.5 font-semibold"><Globe className="h-4 w-4 text-primary" /> {L("Country settings", "ตั้งค่าตามประเทศ")}</span>
+      </div>
+      <div className="mb-3 flex gap-1.5">
+        {countries.map((c) => (
+          <span key={c.n} className={`rounded-full px-2.5 py-1 text-[10px] font-medium ${c.active ? "bg-primary text-primary-foreground" : "border text-muted-foreground"}`}>{c.n}</span>
+        ))}
+      </div>
+      <div className="rounded-lg border">
+        {rows.map((r, i) => (
+          <div key={r.k} className={`flex items-center gap-2.5 px-3 py-2 ${i > 0 ? "border-t" : ""}`}>
+            <span className="text-muted-foreground">{r.icon}</span>
+            <span className="flex-1 text-muted-foreground">{r.k}</span>
+            <span className="font-medium text-foreground">{r.v}</span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 text-[10px] font-medium text-muted-foreground">{L("App languages", "ภาษาในแอป")}</div>
+      <div className="mt-1.5 flex flex-wrap gap-1">
+        {languages.map((l) => (
+          <span key={l} className="rounded-md border bg-muted/40 px-1.5 py-0.5 text-[10px] text-foreground">{l}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export const FEATURE_MOCKS = {
   order: OrderMock,
   customer: CustomerMock,
@@ -526,6 +575,7 @@ export const FEATURE_MOCKS = {
   paymentIntegrations: PaymentIntegrationsMock,
   orderUnits: OrderUnitsMock,
   pod: PodMock,
+  global: GlobalMock,
 } as const;
 
 export type MockKind = keyof typeof FEATURE_MOCKS;

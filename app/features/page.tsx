@@ -16,6 +16,7 @@ import {
   Truck,
   BarChart3,
   Smartphone,
+  Globe,
   Check,
   ArrowRight,
 } from "lucide-react";
@@ -38,6 +39,7 @@ const MEDIA: { icon: ReactNode; mock: MockKind; slug?: string }[] = [
   { icon: <Truck />, mock: "delivery", slug: "delivery" },
   { icon: <BarChart3 />, mock: "reports", slug: "reports" },
   { icon: <Smartphone />, mock: "mobile", slug: "mobile" },
+  { icon: <Globe />, mock: "global", slug: "global" },
 ];
 
 const STR = {
@@ -57,6 +59,7 @@ const STR = {
       { tag: "Delivery", title: "Delivery & distribution", body: "Plan deliveries and track vehicles and the status of every drop on the map, with proof of delivery — fewer leftovers, and accurate ETAs for customers.", points: ["Auto-route deliveries to save time and fuel", "Live status for every drop on the map", "Proof of delivery — signature or photo"] },
       { tag: "Insights", title: "Real-time reports", body: "See sales, targets, and the whole business live — so you can act right away, without waiting for month-end.", points: ["Today's sales versus target, at a glance", "Reports by product, rep, or area", "Export your data anytime"] },
       { tag: "Mobile", title: "Works on mobile", body: "Everything runs on a single phone, out in the field, with data synced back to the office automatically.", points: ["Take orders and collect payment on mobile", "Works on iOS and Android", "Syncs to the central system in real time"] },
+      { tag: "Global", title: "Ready for any country", body: "Run sales in other countries on the same system. Each user picks their own language, and time zones, taxes and addresses follow the rules of each country.", points: ["Multi-language, including Chinese, Vietnamese and Khmer", "Time zones and country-level tax settings", "Provinces, districts and sub-districts for every country, on the map"] },
     ],
     ctaTitle: "Ready to put it all to work?",
     ctaSub: "See how Vansales fits your sales and distribution operation.",
@@ -77,6 +80,7 @@ const STR = {
       { tag: "จัดส่ง", title: "จัดส่งและกระจายสินค้า", body: "วางแผนจัดส่ง ติดตามรถและสถานะแต่ละจุดบนแผนที่ พร้อมหลักฐานการส่ง — ลดของตกค้าง ลูกค้ารู้เวลาส่งที่แม่นยำ", points: ["จัดเส้นทางส่งอัตโนมัติ ประหยัดเวลาและน้ำมัน", "ติดตามสถานะการส่งแต่ละจุดแบบเรียลไทม์", "หลักฐานการส่ง (ลายเซ็น/รูปถ่าย)"] },
       { tag: "รายงาน", title: "รายงานและแดชบอร์ดเรียลไทม์", body: "เห็นยอดขาย เป้า และภาพรวมธุรกิจแบบเรียลไทม์ ตัดสินใจได้ทันที ไม่ต้องรอสิ้นเดือน", points: ["แดชบอร์ดยอดขายวันนี้ เทียบเป้า", "รายงานแยกตามสินค้า เซลส์ หรือพื้นที่", "ส่งออกข้อมูลได้ทุกเมื่อ"] },
       { tag: "มือถือ", title: "ใช้งานบนมือถือ ได้ทุกที่", body: "ทำงานได้ครบบนมือถือเครื่องเดียวถึงหน้างานจริง ข้อมูลซิงค์เข้าหลังบ้านอัตโนมัติ", points: ["เปิดบิล รับออเดอร์ เก็บเงิน บนมือถือ", "รองรับทั้ง iOS และ Android", "ซิงค์เข้าระบบกลางแบบเรียลไทม์"] },
+      { tag: "ต่างประเทศ", title: "พร้อมใช้งานทุกประเทศ", body: "ขยายทีมขายไปต่างประเทศได้ด้วยระบบเดิม ผู้ใช้แต่ละคนเลือกภาษาของตัวเองได้ ส่วนโซนเวลา ภาษี และที่อยู่ เป็นไปตามแต่ละประเทศ", points: ["รองรับหลายภาษา (Multi-language) รวมถึงจีน เวียดนาม และเขมร", "รองรับโซนเวลาและตั้งค่าภาษีระดับประเทศ", "จังหวัด อำเภอ ตำบล ของทุกประเทศ บนแผนที่"] },
     ],
     ctaTitle: "พร้อมใช้งานจริงแล้วหรือยัง?",
     ctaSub: "ดูว่า Vansales เข้ากับงานขายและกระจายสินค้าของคุณอย่างไร",
