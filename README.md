@@ -5,7 +5,7 @@
 ### All-in-one sales & distribution platform
 **Built for field sales and distribution teams across Thailand and Southeast Asia.**
 
-[🌐 vansales.ai](https://vansales.ai) · [🔐 Open the app](https://manager.vansales.asia) · [✉️ Talk to us](https://vansales.ai/#contact)
+[🌐 vansales.ai](https://vansales.ai) · [🔐 Open the app](https://app.vansales.ai) · [✉️ Talk to us](https://vansales.ai/#contact)
 
 </div>
 
@@ -32,6 +32,7 @@ The result: **faster sales, fewer errors, and full visibility** — from the ver
 | 📊 **Reports** | Sales, targets, and the whole business — live |
 | 📱 **Mobile** | Run it all from a single phone in the field |
 | 🏢 **Multi-branch** | Scale across many branches and distributors |
+| 🌏 **Global** | Multi-language, time zones, country-level tax and local addresses |
 
 ## Industries we serve
 
@@ -45,18 +46,18 @@ The result: **faster sales, fewer errors, and full visibility** — from the ver
 
 ตั้งแต่เปิดบิลหน้าร้าน ไปจนถึงส่งของถึงมือลูกค้า — ออเดอร์ ลูกค้า สต๊อก เส้นทาง การเก็บเงิน การจัดส่ง และรายงาน อยู่ในระบบเดียว แบบเรียลไทม์ ช่วยให้ **ขายได้เร็วขึ้น แม่นยำขึ้น และมองเห็นทุกอย่างชัดเจน** ตั้งแต่รถขายคันแรกไปจนถึงเครือข่ายร้านค้านับแสนแห่ง
 
-🌐 เว็บไซต์: [vansales.ai](https://vansales.ai) · 🔐 เข้าสู่ระบบ: [manager.vansales.asia](https://manager.vansales.asia) · ✉️ ติดต่อเรา: [vansales.ai/#contact](https://vansales.ai/#contact)
+🌐 เว็บไซต์: [vansales.ai](https://vansales.ai) · 🔐 เข้าสู่ระบบ: [app.vansales.ai](https://app.vansales.ai) · ✉️ ติดต่อเรา: [vansales.ai/#contact](https://vansales.ai/#contact)
 
 ---
 
 <details>
 <summary><b>About this repository</b></summary>
 
-This repository holds the source of the Vansales **marketing website** ([vansales.ai](https://vansales.ai)) — a bilingual (EN/TH) [Next.js](https://nextjs.org) 14 app built with the Vansales design system.
+This repository holds the source of the Vansales **marketing website** ([vansales.ai](https://vansales.ai)) — a bilingual (EN/TH) [Next.js](https://nextjs.org) 15 app built with the Vansales design system.
 
 ```sh
 pnpm install
-pnpm dev        # http://localhost:3000
+./node_modules/.bin/next dev -p 5005   # http://localhost:5005 (Thai under /th)
 ```
 
 The design system ships as a vendored package under `vendor/`. The contact form
