@@ -512,9 +512,19 @@ export default async function FeatureDetailPage({ params }: { params: Promise<{ 
   const Mock = FEATURE_MOCKS[entry.mock] as (p: { lang?: "en" | "th" }) => JSX.Element;
   const Mock2 = entry.mock2 ? (FEATURE_MOCKS[entry.mock2] as (p: { lang?: "en" | "th" }) => JSX.Element) : null;
   const others = Object.keys(DETAILS).filter((s) => s !== slug);
+  // FAQPage structured data so Google can show the Q&A in search results.
+  const faqJsonLd = t.faq && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: lang,
+    mainEntity: t.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  };
 
   return (
     <div className="bg-background text-foreground antialiased">
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }} />
+      )}
       <SiteHeader lang={lang} />
 
       {/* Hero */}
